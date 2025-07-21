@@ -1,0 +1,153 @@
+header.wp-block-template-part {
+	/* Clear WC Mini Cart Padding to prevent menu misalignment. */
+	.wp-block-woocommerce-mini-cart {
+		display: flex;
+
+		.wc-block-mini-cart__button {
+			padding: 0;
+
+			/* Prevent button background change. */
+			&:hover,
+			&:focus {
+				background: none;
+			}
+		}
+
+		.wc-block-mini-cart__badge {
+			font-size: 0.68em;
+		}
+	}
+
+	/* Change hover/focus states to be the same as menu. */
+	.wp-block-woocommerce-customer-account a:hover,
+	.wp-block-woocommerce-customer-account a:focus,
+	.wc-block-mini-cart__button:hover,
+	.wc-block-mini-cart__button:focus {
+		color: var(--wp--preset--color--accent) !important;
+
+		svg {
+			color: var(--wp--preset--color--accent);
+		}
+	}
+}
+
+/* Demo store notice bottom positioning fix. */
+.woocommerce-store-notice,
+p.demo_store {
+	bottom: 0;
+	position: fixed !important;
+	top: auto !important;
+}
+
+/* WooCommerce block-width overrides. Works on any page whose body class contains "woocommerce". */
+/* 1. Woo blocks that arrive alignwide. */
+body[class*="woocommerce"] [class*="wp-block-woocommerce"].alignwide{
+	max-width:var(--wp--style--global--content-size);
+	margin-inline:auto;
+}
+
+/* 2. Anonymous alignwide blocks in Woo patterns (Shop/archive etc). */
+body[class*="woocommerce"] main .alignwide{
+	max-width:var(--wp--style--global--content-size);
+	margin-inline:auto;
+}
+
+/* 3. Legacy PHP template wrapper (.woocommerce). */
+body[class*="woocommerce"] main > .woocommerce{
+	max-width:var(--wp--style--global--content-size);
+	margin-inline:auto;
+}
+
+/* 4. Shop & product-archive titles. */
+body.woocommerce-shop .wp-block-post-title,
+body.post-type-archive-product .wp-block-post-title{
+	max-width:var(--wp--style--global--content-size);
+}
+
+/* 5. Titles & wrapper on Account / Cart / Checkout — still need !important to beat Woo’s 1000 px rule in woocommerce.css. */
+body.woocommerce-account  .wp-block-post-title,
+body.woocommerce-account  main .woocommerce,
+body.woocommerce-cart     .wp-block-post-title,
+body.woocommerce-cart     main .woocommerce,
+body.woocommerce-checkout .wp-block-post-title,
+body.woocommerce-checkout main .woocommerce{
+	max-width:var(--wp--style--global--content-size) !important;
+}
+
+/* 6. Beat Core’s inline .is-layout-constrained > .alignwide rule (cart, checkout, mini-cart, etc). */
+body[class*="woocommerce"] .is-layout-constrained >
+	[class*="wp-block-woocommerce"].alignwide{
+	max-width:var(--wp--style--global--content-size) !important;
+	margin-inline:auto;
+}
+
+.woocommerce-account .woocommerce-MyAccount-navigation li {
+	padding: 0;
+	padding-bottom: 1em;
+}
+
+/* Don't underline checkout button. */
+.entry-content a.wc-block-cart__submit-button {
+	text-decoration: none;
+}
+
+/* Single Product Page Styling */
+
+/* Allow Related Product Buttons to have a visible border. */
+.wp-block-button.wc-block-components-product-button .wc-block-components-product-button__button {
+	border-style: solid;
+}
+
+/* Increase add to cart button and quantity font size. */
+.wc-block-add-to-cart-form .input-text,
+.wp-block-add-to-cart-form button[name="add-to-cart"] {
+	font-size: var(--wp--preset--font-size--small);
+}
+
+/* Product page gallery spacing. */
+.woocommerce div.product div.images .flex-control-thumbs {
+	display: flex;
+	gap: 1.25em;
+	margin-top: 1.25em;
+
+	li {
+		float: none;
+		margin: 0;
+	}
+}
+
+/* Style SKU and Category to match post terms layout. */
+.wc-block-components-product-sku {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+
+	.wp-block-post-terms__prefix {
+		font-weight: bold;
+	}
+
+	.sku {
+		font-weight: normal;
+		letter-spacing: normal;
+		text-transform: none;
+	}
+}
+
+.taxonomy-product_cat.wp-block-post-terms {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+
+	.wp-block-post-terms__prefix {
+		font-style: normal;
+		font-weight: bold;
+		line-height: 1.33;
+		margin: 0;
+	}
+
+	a {
+		font-weight: normal;
+		letter-spacing: normal;
+		text-transform: none;
+	}
+}

@@ -1,0 +1,137 @@
+/* Lightbox */
+.wp-lightbox-overlay {
+
+	/* Lightbox Overlay. */
+	.scrim {
+		background: var(--wp--preset--color--lightbox-overlay-color) !important;
+	}
+
+	.so-lightbox-prev,
+	.so-lightbox-next,
+	.so-lightbox-pagination,
+	.close-button {
+		position: absolute;
+		z-index: 2000001; /* This is 1 higher than the default lightbox z-index. */
+	}
+
+	.close-button {
+		cursor: pointer;
+		top: 22px;
+		z-index: 10000000001;
+	}
+
+	/* Prevent image from covering pagination. */
+	.lightbox-image-container {
+		top: calc(50% + 30px);
+	}
+
+	/* Pagination */
+	.so-lightbox-pagination {
+		display: flex;
+		gap: 32px;
+		justify-content: center;
+		left: 0;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		right: 0;
+		top: 30px;
+
+		/* Reduce spacing on mobile to help with alignment. */
+		@media (max-width: 600px) {
+			gap: 15px;
+			justify-content: start;
+			padding-left: calc(env(safe-area-inset-right) + 16px);
+			width: calc(100% - env(safe-area-inset-right) + -80px); /* 80 2x the width of the close button, and spacing. */
+		}
+
+		button {
+			color: inherit;
+			cursor: pointer;
+			font-family: var(--wp--preset--font-family--open-sans);
+			font-size: var(--wp--preset--font-size--small);
+			font-weight: var(--wp--custom--font-weight--semi-bold);
+			line-height: 19.07px;
+			text-align: left;
+
+			&:hover,
+			&:focus {
+				color: var(--wp--preset--color--accent);
+			}
+
+			&.so-active-item {
+				color: var(--wp--preset--color--accent);
+				cursor: default;
+			}
+		}
+	}
+
+	/* Arrow Navigation */
+	.so-lightbox-prev {
+		left: calc(env(safe-area-inset-left) + 16px);
+		transform: rotate(180deg) translateY(67%);
+	}
+
+	.so-lightbox-next {
+		right: calc(env(safe-area-inset-right) + 16px);
+		transform: translateY(-50%);
+	}
+
+	.so-lightbox-prev,
+	.so-lightbox-next {
+		cursor: pointer;
+		height: 32px;
+		top: 50%;
+		width: 32px;
+
+		path {
+			stroke-linecap: round;
+			stroke-linejoin: round;
+			stroke-width: 2;
+			stroke: var(--wp--custom--color--icon);
+		}
+	}
+
+	.close-button,
+	.so-lightbox-prev,
+	.so-lightbox-next {
+
+		&:hover,
+		&:focus {
+
+			path {
+				stroke: var(--wp--preset--color--accent);
+			}
+		}
+	}
+
+	@media (max-width: 600px) {
+
+		.so-lightbox-prev,
+		.so-lightbox-next {
+			top: 0;
+		}
+
+		.lightbox-image-container {
+			animation: none !important; /* Prevent animation on mobile due to misalignment in zoom. */
+		}
+	}
+}
+
+/* Center lightbox indicator by overriding the core. */
+.so-lightbox {
+	position: relative;
+
+	.lightbox-trigger {
+		bottom: initial !important;
+		left: 50% !important;
+		right: 0 !important;
+		top: 50% !important;
+		transform: translate(-50%, -50%);
+	}
+}
+
+/* If lightbox is open, prevent page scroll. */
+html:has(.wp-lightbox-overlay.active) {
+	overflow: hidden;
+}

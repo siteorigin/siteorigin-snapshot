@@ -1,0 +1,190 @@
+/* Query Block with the style set to Posts Slider. */
+.wp-block-query.is-style-posts-slider {
+	margin-block-start: 0;
+	padding-inline: 0 !important;
+	position: relative;
+
+	& > .wp-block-post-template {
+		margin-inline: 0 !important;
+	}
+
+	.wp-block-post-template,
+	.wp-post-image {
+		height: max(91vh, 400px);
+	}
+
+	.wp-block-post-template {
+		color: var(--wp--preset--color--post-slider-text);
+		overflow: hidden;
+		padding-left: 0;
+
+		/* Prevent overflow on mobile due to global spacing. */
+		&.alignfull {
+
+			@media (max-width: 600px) {
+				margin-inline: 0;
+			}
+		}
+
+		/* Slightly decrease the overlay opacity when the user focuses the image. */
+		.wp-block-post-featured-image a {
+			.wp-block-post-featured-image__overlay {
+				transition: opacity 250ms ease-in-out;
+			}
+
+			&:focus {
+				.wp-block-post-featured-image__overlay {
+					opacity: 0.1;
+				}
+			}
+		}
+	}
+
+	/* Prevent gaps around slides. */
+	:where(.wp-block-post) {
+		margin: 0;
+		padding: 0;
+	}
+
+	.wp-block-post {
+		position: relative;
+
+		&:not([aria-current]) {
+			display: none;
+		}
+	}
+
+	.taxonomy-category::before {
+		background: var(--wp--preset--color--accent);
+		content: '';
+		display: inline-block;
+		height: 1px;
+		margin-bottom: 3.5px;
+		margin-right: 12px;
+		width: 32px;
+	}
+
+	.snapshot-featured-group,
+	.so-group-navigation {
+		margin: 0 auto;
+		position: absolute;
+	}
+
+	.wp-block-post-template {
+		overflow: hidden;
+
+		.wp-post-image {
+			object-fit: cover !important;
+		}
+	}
+
+	/* If the post doesn't have a featured image, add a background. */
+	.wp-block-post:not(:has(.wp-block-post-featured-image)) {
+		background: var(--wp--preset--color--post-slider-overlay-color);
+		height: 100%;
+	}
+
+	.wp-block-post-featured-image {
+		margin: 0;
+	}
+
+	.snapshot-featured-group {
+		bottom: 120px;
+		gap: 15px;
+		left: 0;
+		max-width: var(--wp--style--global--content-size);
+		right: 0;
+		width: 100%; /* Account for situation where paddings are invalid. */
+		width: calc(100% - var(--wp--style--root--padding-right, 0) - var(--wp--style--root--padding-left, 0));
+
+		/* Remove enforced center alignment. */
+		> * {
+			margin-inline: 0 !important;
+		}
+	}
+
+	/* Arrow navigation. */
+	.so-group-navigation {
+		bottom: 64px;
+		display: flex;
+		right: 24px;
+
+		.so-group-next,
+		.so-group-prev {
+			appearance: none;
+			background: var(--wp--custom--color--dark);
+			border: none;
+			cursor: pointer;
+
+			svg {
+				height: 12px;
+			}
+
+			path {
+				stroke: var(--wp--custom--color--light);
+			}
+
+			&:hover,
+			&:focus {
+				path {
+					stroke: var(--wp--preset--color--accent)
+				}
+			}
+		}
+	}
+
+	/* Number pagination. */
+	.so-group-pagination-number {
+		display: flex;
+		gap: 32px;
+		justify-content: end;
+		list-style: none;
+		padding-inline: 24px;
+
+		.so-group-page {
+			appearance: none;
+			background: none;
+			border: none;
+			color: var(--wp--preset--color--smokey);
+			cursor: pointer;
+			font-family: var(--wp--preset--font-family--open-sans);
+			font-size: var(--wp--preset--font-size--small);
+			font-weight: var(--wp--custom--font-weight--semi-bold);
+			line-height: 19.07px;
+			text-align: left;
+
+			&[aria-current],
+			&:hover,
+			&:focus {
+				color: var(--wp--preset--color--accent);
+			}
+		}
+	}
+
+	.wp-block-read-more {
+		background: none;
+
+		path {
+			stroke: var(--wp--preset--color--secondary);
+		}
+
+		&:hover,
+		&:focus {
+			background: none !important;
+
+			path {
+				stroke: var(--wp--preset--color--accent) !important;
+			}
+		}
+	}
+
+	a:hover,
+	a:focus {
+		color: var(--wp--preset--color--accent) !important;
+	}
+}
+
+/* Remove header bottom margin if there's a posts slider present. */
+body:has(.is-style-posts-slider) header.wp-block-template-part > .wp-block-group {
+	margin-block-end: 0 !important;
+}

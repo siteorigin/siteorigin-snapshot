@@ -1,0 +1,54 @@
+/* Resolve category list link color issue. */
+.sidebar-categories.wp-block-categories a:where(:not(.wp-element-button)) {
+	color: var(--wp--preset--color--sidebar-link);
+
+	&:hover,
+	&:focus {
+		color: var(--wp--preset--color--accent);
+	}
+}
+
+/* Block Editor Posts Slider styling fixes. */
+.editor-styles-wrapper .wp-block-query.is-style-posts-slider {
+	height: auto;
+	min-height: 88vh;
+
+	/* Ensure featured image placeholder is full height. */
+	.wp-block-post,
+	.wp-block-post-template,
+	.wp-block-post-featured-image,
+	.components-placeholder__illustration,
+	.block-editor-media-placeholder {
+		height: 100vh !important;
+	}
+
+	/* Prevent placeholder featured image covering the text. */
+	.snapshot-featured-group {
+		z-index: 1;
+	}
+
+	/* Change placeholder colors. */
+	.components-placeholder.has-illustration {
+
+		&::before {
+			opacity: 1;
+			color: rgb( 0 0 0 / 64% );
+		}
+
+		.components-placeholder__illustration {
+			stroke: #000;
+		}
+	}
+
+	/* Only show the first slide in the admin. */
+	.wp-block-post {
+
+		&:first-of-type {
+			display: block !important;
+		}
+
+		&:not(:first-of-type) {
+			display: none;
+		}
+	}
+}

@@ -1,0 +1,1508 @@
+/*
+Theme Name: SiteOrigin Snapshot
+Author: SiteOrigin
+Author URI: https://siteorigin.com/
+Description: A sleek, minimalist block theme designed for photographers and creatives to showcase their work, featuring responsive masonry layouts, customizable portfolio formats.
+and seamless integration with Page Builder and SiteOrigin Blocks.
+Requires at least: 6.0
+Tested up to: 6.8
+Requires PHP: 7.4
+Version: 1.0
+License: GPLv3
+License URI: http://www.gnu.org/licenses/gpl.html
+Text Domain: siteorigin-snapshot
+Tags: photography, portfolio, blog, grid-layout, one-column, two-columns, right-sidebar, block-patterns, block-styles, wide-blocks, custom-background, custom-logo, custom-menu, editor-style
+featured-images, footer-widgets, full-site-editing, full-width-template, style-variations, threaded-comments, translation-ready
+*/
+
+/* Reset */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	overflow-y: scroll;
+	scroll-behavior: smooth;
+	scroll-padding-top: 88px;
+}
+
+body {
+	line-height: 1.75;
+
+	&:not(.wp-editor) {
+		margin: unset;
+	}
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+button {
+	cursor: pointer;
+}
+
+:where(button:not(.wp-block-button__link):not(.wp-element-button):not(.components-button)) {
+	background-color: var(--wp--custom--color--button--regular--background);
+	border: 1px solid var(--wp--custom--color--button--regular--text);
+	color: var(--wp--custom--color--button--regular--text);
+
+	&:hover,
+	&:focus {
+		background-color: var(--wp--custom--color--button--hover--background);
+		border-color: var(--wp--custom--color--button--hover--text);
+		color: var(--wp--custom--color--button--hover--text);
+	}
+}
+
+input,
+textarea {
+
+	&::placeholder {
+		color: var(--wp--preset--color--smokey);
+		font-family: var(--wp--preset--font-family--open-sans);
+		font-size: var(--wp--preset--font-size--normal);
+		font-weight: 400;
+		text-align: left;
+	}
+
+	&:hover,
+	&:focus {
+		border-color: var(--wp--custom--color--active-field);
+	}
+
+	&:active {
+		color: var(--wp--preset--color--primary);
+	}
+}
+
+input[type="checkbox"] {
+	appearance: none !important;
+	background-color: #fff;
+	border: 1px solid #949494;
+	cursor: pointer;
+	height: 16px;
+	letter-spacing: normal;
+	margin-left: 0;
+	position: relative;
+	width: 16px !important; /* Prevent Jetpack sizing conflict. */
+
+	&:checked {
+		background-color: var(--wp--preset--color--primary);
+		border-color: var(--wp--preset--color--primary);
+
+		&::before {
+			color: var(--wp--preset--color--secondary);
+			content: '\2713'; /* Checkmark */
+			font-size: 14px;
+			left: 50%;
+			line-height: 1;
+			position: absolute;
+			top: 50%;
+			transform: translate(-50%, -50%);
+		}
+	}
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-top: 0;
+	overflow-wrap: break-word;
+}
+
+img,
+picture,
+svg,
+canvas {
+	block-size: auto;
+	display: block;
+	max-inline-size: 100%;
+}
+
+/* Clear WordPress top level spacing. */
+:where(.wp-site-blocks) > * {
+	margin-block: 0;
+}
+
+/* Improve Sticky header behavior with admin bar. */
+body.admin-bar .wp-site-blocks {
+	overflow: clip;
+}
+
+/* Header */
+header.wp-block-template-part {
+
+	&:has(.is-position-sticky) {
+		position: sticky;
+		top: 0;
+		z-index: 101;
+
+		@media (min-width: 601px) {
+
+			/* Prevent the header from being pushed down when the WC Drawer opens. */
+			body:not(.drawer-open) & {
+				top: calc(0px + var(--wp-admin--admin-bar--height, 0px));
+			}
+		}
+	}
+
+	.is-position-sticky {
+		position: initial;
+	}
+
+	body.header-overlap & > .wp-block-group {
+		position: fixed;
+
+		&,
+		.wp-block-search__button {
+			transition: background 250ms ease-in-out;
+		}
+
+		&:not(.floating),
+		&:not(.floating) .wp-block-search__button {
+			background: rgb(0 0 0 / 100%) !important;
+		}
+	}
+
+	> .wp-block-group {
+		width: 100%;
+
+		.main-header {
+			/* Centre items vertically to avoid small baseline differences that cause the icons to look mis-aligned. */
+			align-items: center;
+			position: relative;
+		}
+	}
+
+	nav.wp-block-navigation {
+		flex: 2;
+
+		.wp-block-spacer {
+			height: 1px !important; /* Block Editor seems to enforce 100px in the editor, we need to override this. */
+		}
+	}
+
+	/* Add animated mobile menu icon. */
+	.wp-block-navigation {
+
+		/* Mobile menu icon */
+		.wp-block-navigation__responsive-container-open {
+			display: flex;
+			position: absolute;
+			right: -0.5em;
+
+			@media (min-width: 600px) {
+
+				/* If the mobile menu isn't set to always show, and it's not already open, hide it on desktop. */
+				html:not(.so-mobile-menu-open) &:not(.always-shown) {
+					display: none;
+				}
+			}
+		}
+
+		/* Assuming the mobile menu is enabled. */
+		&:not(.snapshot-nav-text-only) {
+
+			.wp-block-navigation__responsive-container-open {
+				background: none;
+				align-items: center;
+				height: 30px;
+				justify-content: center;
+				width: 45px;
+
+				/* How large the button is if there's no middle icon. */
+				&:not(:has(.snapshot-mobile-middle-line)) {
+					height: 25px;
+				}
+
+				.snapshot-mobile-middle-line,
+				&::before,
+				&::after {
+					height: 1px;
+					position: absolute;
+					transition: transform 0.3s ease, opacity 0.3s ease;
+					width: 15px;
+				}
+
+				.snapshot-mobile-middle-line {
+					border-bottom: 2px solid var(--wp--preset--color--secondary);
+					display: block;
+				}
+
+				&::before {
+					border-top: 2px solid var(--wp--preset--color--secondary);
+					content: '';
+					top: 7px;
+				}
+
+				&::after {
+					border-bottom: 2px solid var(--wp--preset--color--secondary);
+					bottom: 7px;
+					content: '';
+				}
+
+				&:hover,
+				&:focus {
+
+					.snapshot-mobile-middle-line,
+					&::before,
+					&::after {
+						border-color: var(--wp--preset--color--accent);
+					}
+				}
+			}
+		}
+
+		/* The mobile menu icon animation. */
+		.wp-block-navigation__responsive-container-open.so-menu-open {
+
+			span:last-of-type {
+				opacity: 0;
+			}
+
+			&::before,
+			&::after {
+				top: 50%;
+			}
+
+			&::before {
+				transform: translate(0, -50%) rotate(45deg);
+			}
+
+			&::after {
+				transform: translate(0, -50%) rotate(-45deg);
+			}
+		}
+	}
+
+	/* Mobile menu is open. */
+	.so-mobile-menu-open & {
+
+		/* Reset layout properties for all menu elements. */
+		.wp-block-navigation__container,
+		.wp-block-navigation__container ul,
+		.wp-block-navigation__container li,
+		.wp-block-navigation-item__content {
+			margin: 0 !important;
+			padding: 0 !important;
+			width: 100% !important;
+		}
+
+		/* Main navigation container styles. */
+		.wp-block-navigation__container {
+			gap: 0 !important;
+
+			/* Styles for all navigation items. */
+			.wp-block-navigation-item {
+
+				/* Remove existing submenu bottom borders. */
+				&::after {
+					content: none !important;
+				}
+
+				/* Add bottom border to all menu items. */
+				> .wp-block-navigation-item__content {
+					border-bottom: 1px solid rgb(255 255 255 / 25%);
+				}
+			}
+
+			/* Styles for all menu item content. */
+			.wp-block-navigation-item__content {
+				align-items: center;
+				display: flex;
+				padding: 12px 0 !important;
+
+				/* Submenus are displayed and indented in the mobile menu. If the mobile menu is open, hide the submenu button.
+				.wp-block-navigation__submenu-icon won't be available if submenus are set to click. */
+				.wp-block-navigation__submenu-icon,
+				.snapshot-icon {
+					display: none;
+				}
+			}
+
+			/* Ensure submenus don't add extra padding */
+			.wp-block-navigation__submenu-container {
+				padding: 0 !important;
+			}
+		}
+
+		/* Submenu indentation for left and centered aligned mobile menu. */
+		nav:not(.items-justified-right) .wp-block-navigation__container .wp-block-navigation__submenu-container {
+
+			> .wp-block-navigation-item > .wp-block-navigation-item__content {
+				padding-left: 25px !important; /* First level. */
+			}
+
+			.wp-block-navigation__submenu-container {
+
+				> .wp-block-navigation-item > .wp-block-navigation-item__content {
+					padding-left: 50px !important; /* Second level. */
+				}
+
+				.wp-block-navigation__submenu-container {
+
+					> .wp-block-navigation-item > .wp-block-navigation-item__content {
+						padding-left: 75px !important; /* Third level. */
+					}
+
+					.wp-block-navigation__submenu-container {
+
+						> .wp-block-navigation-item > .wp-block-navigation-item__content {
+							padding-left: 100px !important; /* Fourth level. */
+						}
+					}
+				}
+			}
+		}
+
+		/* Submenu indentation for right aligned mobile menu. */
+		.items-justified-right .wp-block-navigation__container {
+
+			.wp-block-navigation-item__content {
+				justify-content: end;
+			}
+
+			> .wp-block-navigation-item > .wp-block-navigation-item__content {
+				padding-right: 25px !important; /* First level. */
+			}
+
+			.wp-block-navigation__submenu-container {
+
+				> .wp-block-navigation-item > .wp-block-navigation-item__content {
+					padding-right: 50px !important; /* Second level. */
+				}
+
+				.wp-block-navigation__submenu-container {
+
+					> .wp-block-navigation-item > .wp-block-navigation-item__content {
+						padding-right: 75px !important; /* Third level. */
+					}
+
+					.wp-block-navigation__submenu-container {
+
+						> .wp-block-navigation-item > .wp-block-navigation-item__content {
+							padding-right: 100px !important; /* Fourth level. */
+						}
+					}
+				}
+			}
+		}
+	}
+
+	/* Enforce left text alignment but keep items vertically centred to align with neighbouring icons. */
+	.wp-block-navigation__container:not(.is-vertical),
+	.wp-block-navigation-item.has-child,
+	.wp-block-navigation-item {
+		align-items: center !important;
+	}
+
+	/* Improve submenu alignment on desktop. */
+	html:not(.so-mobile-menu-open) & .wp-block-navigation__container > .has-child {
+
+		/* Align menu item text with indicator. */
+		& > .wp-block-navigation-item__content {
+			display: flex;
+		}
+
+		/* All submenu containers. */
+		.wp-block-navigation__submenu-container {
+			border: none;
+
+			/* Prevent WP from clearing the submenu width. */
+			width: auto;
+		}
+
+		/* Restore submenu keyboard navigation. */
+		.wp-block-navigation-item__content:has(.wp-block-navigation-submenu__toggle[aria-expanded="true"]) ~ .wp-block-navigation__submenu-container {
+			opacity: 1;
+			overflow: visible;
+			visibility: visible;
+			width: auto;
+		}
+	}
+
+	/* Adjust submenu alignment for right-aligned navigation on desktop. */
+	.items-justified-right .wp-block-navigation__container > .wp-block-navigation-item.has-child {
+
+		/* Align the first level submenu container with the parent menu item text. */
+		> .wp-block-navigation__submenu-container {
+			right: -5px;
+		}
+
+		/* Right align submenu content. */
+		.wp-block-navigation-item__content {
+			justify-content: end;
+		}
+
+		/* Open nested submenus to the left. */
+		.wp-block-navigation__submenu-container {
+			left: auto !important;
+
+			/* Move nest submenu indicator to the left and rotate the icon. */
+			.wp-block-navigation__submenu-icon,
+			.snapshot-icon {
+				margin-left: 0;
+				margin-right: .25em;
+				order: -1;
+			}
+
+			.snapshot-icon {
+				transform: rotate(180deg) !important;
+			}
+		}
+	}
+
+	/* Improve submenu alignment on all devices. */
+	.wp-block-navigation__submenu-container {
+		padding: 23px 0 0;
+		white-space: nowrap;
+
+		.so-mobile-menu-open & {
+			white-space: wrap;
+		}
+
+		/* Align the submenu with parent menu text. */
+		html:not(.so-mobile-menu-open) & {
+			left: -25px;
+		}
+
+		.wp-block-navigation__submenu-container {
+			left: 100% !important;
+			padding-block: 0 !important;
+			top: 0 !important;
+
+			&.so-offscreen,
+			&.so-offscreen .wp-block-navigation__submenu-container {
+				left: unset !important;
+				right: 100%;
+			}
+		}
+
+		.wp-block-navigation-item {
+
+			&:not(:last-of-type)::after {
+				background: rgb(255 255 255 / 25%);
+				bottom: 0;
+				content: '';
+				height: 1px;
+				left: 25px;
+				position: absolute;
+				right: 25px;
+			}
+
+			.wp-block-navigation-item__content {
+				letter-spacing: 2px;
+				padding: 12px 25px;
+			}
+		}
+	}
+
+	/* Submenu indicator. */
+	.wp-block-navigation__container > .wp-block-navigation-item {
+
+		/* When menu is set to Click to Show, we need to remove the padding from top level buttons. */
+		& > button.wp-block-navigation-submenu__toggle {
+			padding: 0;
+		}
+
+		.wp-block-navigation-submenu__toggle {
+			align-items: center;
+			display: flex;
+
+			&:not(.wp-block-navigation-item__content ),
+			.snapshot-icon {
+				height: 16px;
+				width: 16px;
+			}
+
+			/* Applies when submenu is set to open on click. */
+			&.wp-block-navigation-item__content .snapshot-icon {
+				margin-left: 0.25em;
+			}
+
+			.snapshot-icon {
+				transform: none !important; /* WP applies a rotation after the first level. */
+				max-inline-size: unset; /* Prevents icon from being cut off. */
+			}
+		}
+	}
+
+	/* Submenu hovers outside of mobile menu. */
+	html:not(.so-mobile-menu-open) & {
+
+		.wp-block-navigation__container .wp-block-navigation-item {
+
+			&:hover,
+			&:focus {
+
+				& > .wp-block-navigation-item__content {
+					color: var(--wp--preset--color--accent);
+
+					.snapshot-icon path {
+						stroke: var(--wp--preset--color--accent);
+					}
+				}
+			}
+		}
+	}
+
+	.wp-block-navigation__responsive-container {
+		animation: none !important;
+
+		/* Prevent undesired mobile menu spacing, and hide default close. */
+		.wp-block-spacer,
+		.wp-block-navigation__responsive-container-close {
+			display: none;
+		}
+	}
+
+	/* Override WP Block Styling to add navigation menu item hover. */
+	header .wp-block-navigation .wp-block-navigation-item__content.wp-block-navigation-item__content {
+
+		&:hover,
+		&:focus {
+			color: var(--wp--preset--color--accent);
+		}
+	}
+
+	/* Match the .wp-block-woocommerce-customer-account a padding. */
+	.wp-block-woocommerce-mini-cart {
+		padding: .5em;
+	}
+
+	.wp-block-search {
+		/* Match WooCommerce icons padding and display */
+		display: flex;
+		align-items: center;
+		padding: .5em !important;
+		font-size: clamp(14px, 0.875rem + ((1vw - 3.2px) * 0.536), 20px); /* Match WC clamp on container */
+
+		/* If there's a large number of menu items, prevent the search icon from being hidden. */
+		&.wp-block-search__button-only.wp-block-search__searchfield-hidden {
+			overflow: visible;
+		}
+
+		/* Ensure the inside wrapper doesn't add extra spacing */
+		.wp-block-search__inside-wrapper {
+			display: flex;
+			align-items: center;
+			padding: 0;
+		}
+	}
+
+	.snapshot-icon path {
+		color: var(--wp--preset--color--secondary);
+		fill: transparent;
+		stroke: var(--wp--preset--color--secondary);
+	}
+}
+
+/* Prevent mobile menu icon jump when when menu is opened/closed. */
+html.so-mobile-menu-open {
+	overflow: overlay;
+}
+
+/* Mobile Menu */
+.wp-block-navigation__responsive-container-content {
+	display: none;
+}
+
+.wp-block-navigation__responsive-container {
+	background: var(--wp--preset--color--primary) !important;
+	color: var(--wp--preset--color--secondary) !important;
+	padding-left: var(--wp--style--root--padding-left);
+	padding-right: var(--wp--style--root--padding-right);
+
+	&:not(.is-menu-open) {
+		display: none;
+	}
+
+	.wp-block-navigation__responsive-container-content {
+		display: block;
+	}
+
+	/* Prevent a gap between the header and mobile menu. */
+	.wp-block-navigation__responsive-container-content {
+		padding-top: 0 !important;
+	}
+
+	/* The menu contents are nested inside of this class. */
+	.wp-block-navigation__responsive-close {
+		max-width: var(--wp--style--global--content-size);
+	}
+
+	/* Reposition the close button. */
+	.wp-block-navigation__responsive-dialog {
+		margin: 0 !important;
+		position: static;
+	}
+}
+
+/* Footer */
+footer.wp-block-template-part {
+
+	.wp-block-heading {
+		margin-bottom: 32px;
+	}
+
+	hr {
+		border-bottom: none;
+	}
+
+	figure.wp-block-gallery {
+		row-gap: 8px;
+	}
+
+	.home & {
+		margin-block-start: 0;
+	}
+
+	:root & .wp-block-separator {
+		background: var(--wp--custom--color--atomic);
+	}
+}
+
+summary {
+	border-bottom: 3px solid var(--wp--preset--color--primary);
+}
+
+/* Content */
+.entry-content {
+
+	:where(a) {
+		text-decoration: underline;
+	}
+
+	/* Remove link underline from certain blocks. */
+	:where(a.tag-cloud-link),
+	:where(a.wp-block-button__link) {
+		text-decoration: none;
+	}
+}
+
+.wp-block-group:is(:empty) {
+	display: none;
+}
+
+/* If there aren't any posts for the user to navigate too, hide the navigation, and separator. */
+.snapshot-post-content:not(:has(.wp-block-post-navigation-link a)) .separator-post-nav {
+	display: none;
+}
+
+.post-content-nav:has(.post-navigation-link-previous:empty):has(.post-navigation-link-next:empty) {
+	display: none;
+}
+
+/* WP Applies padding to groups that have a background. For consistency, we need to change it to the global root padding. */
+.wp-block-group.has-background {
+	padding-left: var(--wp--style--root--padding-left);
+	padding-right: var(--wp--style--root--padding-right);
+}
+
+.entry-meta {
+	gap: 8px;
+
+	.wp-block-group {
+		gap: 0;
+	}
+
+	.wp-block-avatar {
+		margin-right: 8px;
+	}
+
+	@media (max-width: 1034px) {
+		gap: 8px 16px;
+		flex-wrap: wrap !important;
+	}
+
+	@media (min-width: 1034px) {
+
+		& > div:is(:not(:last-child)) {
+			display: flex;
+			flex-direction: row;
+
+			&::after {
+				border-right: 1px solid var(--wp--custom--color--icon);
+				content: ' ';
+				display: inline-block;
+				height: 12px;
+				margin-left: 7px;
+			}
+		}
+	}
+
+	svg {
+		margin-left: -2px; /* Account for small gap before icon. */
+		margin-right: 4px;
+
+		path {
+			stroke: var(--wp--custom--color--icon);
+		}
+	}
+
+	.wp-block-post-date {
+		gap: 0;
+	}
+
+	.comment-link {
+		align-items: center;
+		color: inherit;
+		display: flex;
+		font-size: var(--wp--preset--font-size--extra-small);
+		font-weight: 500;
+		letter-spacing: 2px;
+		line-height: 1.33;
+		text-transform: uppercase;
+
+		&:hover,
+		&:focus {
+			color: var(--wp--preset--color--accent);
+		}
+	}
+}
+
+/* Grid */
+.snapshot-grid {
+	row-gap: 64px;
+
+	.wp-block-post {
+		display: flex;
+		flex-direction: column;
+
+		.wp-block-read-more {
+			margin-top: auto;
+		}
+	}
+}
+
+/* Sidebar */
+.snapshot-sidebar {
+	color: var(--wp--preset--color--sidebar-text);
+
+	@media (max-width: 781px) {
+		border-top: 1px solid var(--wp--preset--color--platinum);
+		margin-top: 40px;
+		padding-top: 40px;
+
+		/* Prevent misalignment on collapse. */
+		& > .wp-block-group {
+			margin-inline: 0 !important;
+			padding-inline: 0 !important;
+		}
+	}
+
+	a {
+		color: var(--wp--preset--color--sidebar-link);
+
+		&:hover,
+		&:focus {
+			color: var(--wp--preset--color--accent);
+			text-decoration: none;
+		}
+	}
+
+	.wp-block-heading {
+		text-decoration-color: var(--wp--preset--color--accent);
+		text-decoration-line: underline;
+		text-transform: uppercase;
+		text-underline-offset: 8px;
+	}
+
+	& > :is(:not(.wp-block-heading)) {
+		margin-bottom: 48px;
+	}
+}
+
+/* Lists */
+.entry-content ul,
+ul.so-is-block,
+.entry-content ol,
+ol.so-is-block {
+	list-style-position: outside;
+	padding-left: 14px;
+}
+
+.entry-content li {
+	margin-block-end: 2px;
+}
+
+/* Categories List */
+.wp-block-categories-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	.cat-item:not(:last-child) {
+		margin-block-end: 16px;
+	}
+}
+
+/* Search */
+header.wp-block-template-part {
+
+	.wp-block-search__button {
+		background: none;
+		border: none;
+		cursor: pointer;
+		font-size: inherit; /* Inherit from parent container */
+		padding: 0 !important; /* Remove padding - wrapper already has it */
+		display: flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		line-height: 1;
+		width: auto;
+		height: auto;
+
+		.snapshot-icon {
+			height: 1.2em; /* Slightly smaller to match WC visual size */
+			min-height: auto;
+			min-width: auto;
+			width: 1.2em;
+			display: block;
+
+			@media (max-width: 600px) {
+				height: 1.3em;
+				width: 1.3em;
+			}
+		}
+
+		&:hover,
+		&:focus {
+
+			g {
+				stroke: var(--wp--preset--color--accent) !important;
+			}
+		}
+
+		svg {
+			fill: none !important;
+		}
+	}
+
+	/* Prevent the input from taking up space. */
+	.wp-block-search__input {
+		display: none;
+	}
+
+}
+
+.siteorigin-snapshot-search-overlay {
+	align-items: center;
+	background: var(--wp--preset--color--search-overlay-color);
+	inset: 0;
+	display: flex;
+	justify-content: center;
+	position: fixed;
+	z-index: 102;
+
+	&:not(.so-active) {
+		display: none;
+	}
+
+	.siteorigin-snapshot-search-overlay-close {
+		cursor: pointer;
+		position: absolute;
+		right: 30px;
+		top: max(39px, calc(39px + var(--wp-admin--admin-bar--height, 0px)));
+	}
+
+	.wp-block-search__inside-wrapper {
+		padding: 0;
+
+		input[type="search"] {
+			background: none;
+			color: var(--wp--preset--color--secondary);
+		}
+	}
+
+	.siteorigin-snapshot-search-overlay-close {
+		background: none;
+		border: none;
+		appearance: none;
+	}
+
+	.siteorigin-snapshot-search-overlay-close,
+	.wp-block-search__inside-wrapper button {
+		background: none;
+		border: none;
+
+		svg {
+			fill: none;
+
+			path {
+				stroke: var(--wp--preset--color--secondary);
+			}
+		}
+
+		&:hover,
+		&:focus {
+
+			svg path {
+				stroke: var(--wp--preset--color--accent);
+			}
+		}
+	}
+}
+
+html:has(.siteorigin-snapshot-search-overlay.so-active) {
+	overflow: hidden;
+}
+
+/* Search Block. Hide browser search clear. */
+.wp-block-search__input::-webkit-search-cancel-button {
+	appearance: none;
+}
+
+/* Remove top spacing from the first post title on archives, and on the search results page. Won't apply to Grid layout. */
+.search-results,
+.archive {
+
+	.wp-block-query:not(.snapshot-grid) .wp-block-post:first-of-type .wp-block-post-title{
+		margin-top: 0 !important;
+	}
+}
+
+/* Query Title */
+.is-style-underline.wp-block-query-title {
+	border-bottom: 1px solid var(--wp--preset--color--platinum);
+	width: 100%;
+}
+
+/* Featured Image */
+.wp-block-post-featured-image {
+	max-width: 100%;
+}
+
+/* Tables */
+.wp-block-table,
+table:not(.so-is-block) {
+	margin-bottom: 64px;
+}
+
+table:not(.so-is-block):not(.wc-block-cart-items),
+figure.is-style-regular table,
+figure.so-is-block:not([class*="is-style-"]) table {
+
+	thead tr {
+		text-align: left;
+	}
+
+	th,
+	tr,
+	td {
+		border: 1px solid var(--wp--preset--color--platinum);
+		border-left: none;
+		border-right: none;
+	}
+
+	thead {
+		border-bottom: 1px solid var(--wp--preset--color--platinum);
+	}
+}
+
+table:not(.so-is-block) thead {
+	text-align: left;
+}
+
+/* Blockquote */
+blockquote,
+blockquote.wp-block-quote {
+
+	/* Only the default variant has a border. */
+	&:not(.is-style-plain) {
+		border-left: none;
+		padding-inline: 0;
+
+		p {
+			border-left: 3px solid var(--wp--preset--color--accent);
+			padding-left: 16px;
+		}
+	}
+
+	cite {
+		display: block;
+	}
+
+	p {
+		margin-block-end: 0;
+	}
+}
+
+.figcaption {
+	margin-left: 35px;
+}
+
+/* Buttons */
+.wp-block-buttons {
+	margin-bottom: 48px;
+}
+
+.wp-block-button {
+
+	&.is-style-tag a {
+		background: var(--wp--custom--color--atomic);
+	}
+
+	&.is-style-tag .wp-block-button__link,
+	&.is-style-tag-outline .wp-block-button__link {
+		padding: 0.25rem 0.75rem;
+	}
+
+	&.is-style-tag .wp-block-button__link {
+		background: var(--wp--custom--color--atomic);
+		border: 1px solid var(--wp--custom--color--atomic);
+		color: var(--wp--preset--color--white);
+
+		&:hover,
+		&:focus {
+			background: var(--wp--preset--color--white);
+			color: var(--wp--custom--color--atomic);
+		}
+	}
+
+	&.is-style-outline .wp-block-button__link {
+		background: transparent;
+		border: 1px solid var(--wp--custom--color--atomic);
+		color: var(--wp--custom--color--atomic);
+
+		&:hover,
+		&:focus {
+			background: var(--wp--custom--color--atomic);
+			color: var(--wp--preset--color--white);
+		}
+	}
+}
+
+/* Tag Cloud */
+.wp-block-tag-cloud:not(.is-style-outline, .is-style-unstyled) {
+	display: flex;
+	flex-flow: row wrap;
+	gap: 8px;
+
+	.tag-cloud-link {
+		padding: 0.25rem 0.75rem;
+	}
+
+	&.is-style-default .tag-cloud-link {
+		background: var(--wp--custom--color--atomic);
+		color: var(--wp--preset--color--white);
+
+		&:hover,
+		&:focus {
+			background: var(--wp--preset--color--accent);
+			color: var(--wp--preset--color--secondary);
+		}
+	}
+}
+
+/* Latest Posts */
+.wp-block-latest-posts__list {
+	display: grid;
+	font-weight: 600;
+	gap: 16px;
+	grid-template-columns: 1fr;
+	margin: 0;
+	padding: 0;
+
+	> &:not(:last-child) {
+		margin-bottom: 16px;
+	}
+
+	.wp-block-latest-posts__featured-image {
+		line-height: 0;
+	}
+
+	/* Contains title, and date. */
+	.so-group-block {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+		justify-content: center;
+	}
+
+	.wp-block-latest-posts__post-date {
+		color: var(--wp--preset--color--smokey);
+		font-size: var(--wp--preset--font-size--extra-small);
+		letter-spacing: 2px;
+		line-height: 1.333;
+		text-transform: uppercase;
+
+		footer.wp-block-template-part & {
+			color: var(--wp--preset--color--subdued-text);
+		}
+	}
+}
+
+/* Read More */
+a.wp-block-read-more {
+	display: flex;
+
+	&.is-style-light path {
+		stroke: var(--wp--custom--color--dark);
+	}
+
+	&.is-style-dark path {
+		stroke: var(--wp--custom--color--light);
+	}
+}
+
+/* Post Author */
+body:not(.author) .wp-block-post-author .wp-block-post-author__avatar {
+	margin-right: 40px;
+}
+
+/* Prevent unexpected background in the Author Archive header. */
+body.author :where(.wp-block-post-author-biography) {
+	background: none;
+}
+
+.wp-block-post-author__content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	.wp-block-post-author__name {
+		margin-bottom: 8px;
+	}
+
+	.wp-block-post-author__bio {
+		/*
+		* The author bio has a bug in core that prevents the theme.json,
+		* or block specific font size from being applied. This is a workaround.
+		*/
+		font-size: var(--wp--preset--font-size--small);
+		line-height: 22px;
+		margin-bottom: 24px;
+
+		&:empty {
+			display: none;
+		}
+	}
+
+	.wp-block-post-author__name,
+	& > a {
+		/* Workaround font size limitation in Core. */
+		font-size: var(--wp--preset--font-size--extra-small);
+		font-weight: 600;
+		letter-spacing: 2px;
+		line-height: 1.143;
+		text-transform: uppercase;
+	}
+
+	.all-posts {
+		align-items: center;
+		display: flex;
+		font-size: var(--wp--preset--font-size--extra-small);
+		gap: 8px;
+
+		path {
+			stroke: var(--wp--preset--color--secondary);
+		}
+
+		&:hover,
+		&:focus {
+
+			path {
+				stroke: var(--wp--preset--color--accent);
+			}
+		}
+	}
+}
+
+.wp-block-post-author:not(:has(.all-posts)) .wp-block-post-author__content {
+	margin-bottom: 24px;
+}
+
+@media (max-width: 600px) {
+	.wp-block-post-author {
+		flex-direction: column;
+	}
+
+	body:not(.author) .wp-block-post-author .wp-block-post-author__avatar {
+		margin-bottom: 36px;
+	}
+}
+
+/* Post Date */
+.wp-block-post-date {
+	align-items: center;
+	display: flex;
+}
+
+/* Post Categories */
+.wp-block-post-terms.taxonomy-category {
+	align-items: center;
+}
+
+/* Post Comments */
+.wp-block-comments {
+
+	.author-column {
+		align-self: center;
+	}
+
+	.comment-reply-title {
+		font-size: var(--wp--preset--font-size--normal);
+		font-weight: 700;
+		letter-spacing: 2px;
+		line-height: 1.5;
+		margin-block-end: 8px;
+		text-transform: uppercase;
+	}
+
+	.logged-in-as {
+		line-height: var(--wp--custom--line-height--normal);
+		margin-block-end: 16px;
+	}
+
+	label.add-placeholder {
+		border: 0;
+		clip: rect(0, 0, 0, 0);
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		white-space: nowrap;
+		width: 1px;
+	}
+
+	.wp-block-post-comments-form {
+
+		/* Space between fields. */
+		p {
+			margin-bottom: 16px;
+		}
+
+		.comment-form-author {
+			float: left;
+			width: 49%;
+		}
+
+		.comment-form-email {
+			float: right;
+			width: 49%;
+		}
+
+		.comment-form > p:has(input[type="checkbox"]) {
+			align-items: center;
+			display: flex;
+			font-size: var(--wp--preset--font-size--small);
+		}
+
+		p.comment-subscription-form:has(+ p.comment-subscription-form) {
+			margin-bottom: 0;
+		}
+
+		.comment-form-cookies-consent #wp-comment-cookies-consent {
+			margin-block: 0;
+		}
+
+		.form-submit .wp-block-button__link {
+			align-items: center;
+			border-style: solid;
+			border-width: 1px;
+			display: flex;
+			font-size: var(--wp--preset--font-size--small);
+			justify-content: center;
+		}
+	}
+
+	.wp-block-comment-content {
+
+		a {
+			text-decoration: underline;
+
+			&:hover
+			&:focus {
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+/* Query Block */
+/* Hide the separator if there's no pagination. */
+.wp-block-query:not(:has(.wp-block-query-pagination)) .pagination-separator {
+	display: none;
+}
+
+/* Pagination */
+.wp-block-comments-pagination,
+.wp-block-query-pagination {
+
+	span.current {
+		color: var(--wp--preset--color--accent);
+	}
+
+	.wp-block-comments-pagination-numbers,
+	.wp-block-query-pagination-numbers {
+		display: flex;
+		gap: 32px;
+	}
+
+	.wp-block-comments-pagination-next,
+	.wp-block-comments-pagination-previous,
+	.wp-block-query-pagination-previous,
+	.wp-block-query-pagination-next {
+		align-items: center;
+		display: flex;
+		gap: 16px;
+
+		.snapshot-icon path {
+			height: 16px;
+			stroke: var(--wp--custom--color--icon);
+		}
+
+		&:hover,
+		&:focus {
+
+			path {
+				stroke: var(--wp--preset--color--accent);
+			}
+		}
+	}
+}
+
+/* Post Pagination */
+.wp-block-post-navigation-link a {
+	display: flex;
+	gap: 8px;
+}
+
+/* Post Terms Block. The includes the Tags, and Categories block. */
+.wp-block-post-terms {
+
+	.wp-block-post-terms__prefix {
+		font-size: var(--wp--preset--font-size--extra-small);
+		letter-spacing: 2px;
+		margin-bottom: 0;
+		text-transform: uppercase;
+	}
+
+	/* Only apply button styling to post terms in post content, not in headers, sliders, etc. */
+	.entry-content &:not(.is-style-unstyled):not(.is-style-entry-meta):not(.taxonomy-product_cat):not(.wc-block-components-product-sku) {
+		display: flex;
+		gap: 8px;
+
+		a {
+			background: var(--wp--custom--color--atomic);
+			color: var(--wp--preset--color--secondary);
+			font-size: var(--wp--preset--font-size--extra-small);
+			line-height: 1.6;
+			margin: 0;
+			padding: 4px 12px;
+
+			&:focus,
+			&:hover {
+				background: var(--wp--custom--color--secondary);
+				color: var(--wp--preset--color--atomic);
+			}
+		}
+
+		/* The separator only makes sense visually with the unstyled style. */
+		.wp-block-post-terms__separator {
+			display: none;
+		}
+	}
+}
+
+/* Add hover states to Button Blocks that don't have them. */
+.wp-block-post-comments-form .form-submit .wp-block-button__link,
+a.wp-block-read-more,
+.wp-block-search__button wp-element-button,
+main .wp-block-button__link.wp-element-button,
+footer .wp-block-button__link.wp-element-button {
+
+	&,
+	path {
+		transition: 150ms ease-in-out;
+	}
+
+	path {
+		stroke: currentColor;
+	}
+
+	&:hover,
+	&:focus {
+		background: var(--wp--custom--color--button--hover--background);
+		color: var(--wp--custom--color--button--hover--text);
+
+		svg path {
+			stroke: var(--wp--custom--color--button--hover--text);
+		}
+	}
+}
+
+/* Prevent WP From Stretching Buttons. */
+.wp-block-button__link.wp-element-button {
+	width: fit-content;
+}
+
+/* Dark and Light Styles. */
+.is-style-light {
+
+	&.wp-block-read-more,
+	.tag-cloud-link,
+	.wp-block-button__link,
+	.wp-block-search__button {
+		background: var(--wp--custom--color--light);
+		color: var(--wp--custom--color--dark);
+		border: 1px solid var(--wp--custom--color--dark);
+
+		&:hover,
+		&:focus {
+			background: var(--wp--custom--color--dark) !important;
+			color: var(--wp--custom--color--light) !important;
+		}
+	}
+}
+
+.is-style-dark {
+
+	&.wp-block-read-more,
+	.tag-cloud-link,
+	.wp-block-button__link,
+	.wp-block-search__button {
+		background: var(--wp--custom--color--dark);
+		border: 1px solid rgb(0 0 0 / 100%);
+		color: var(--wp--custom--color--light);
+
+		&:hover,
+		&:focus {
+			background: var(--wp--custom--color--light) !important;
+			border-color: var(--wp--custom--color--dark) !important;
+			color: var(--wp--custom--color--dark) !important;
+		}
+	}
+}
+
+/* Misc. */
+.snapshot-icon {
+	display: inline-block;
+
+	path {
+		stroke: var(--wp--custom--color--icon);
+	}
+}
+
+a:hover > .snapshot-icon,
+a:focus > .snapshot-icon,
+button:hover > .snapshot-icon,
+button:focus > .snapshot-icon {
+
+	path {
+		stroke: var(--wp--preset--color--accent);
+	}
+}
+
