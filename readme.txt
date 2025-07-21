@@ -49,6 +49,16 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 
 You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/copyleft/gpl.html.
 
+== Theme Screenshot ==
+
+Theme screenshot image "Iceland Aurora Borealis Northern Lights" (landscape-water-nature-wilderness-snow-winter-1209671-pxhere.com.jpg) from [PxHere.com](https://pxhere.com/en/photo/1209671) licensed under [CC0 1.0 Universal (CC0 1.0)](https://creativecommons.org/publicdomain/zero/1.0/).
+
+Theme screenshot image "Single Fin Uluwatu Sunset View" by Andrew Misplon licensed under [CC0 1.0 Universal (CC0 1.0)](https://creativecommons.org/publicdomain/zero/1.0/).
+
+Theme screenshot image "Paris Fashion Model" from [PxHere.com](https://pxhere.com/en/photo/1437635) by Jéssica, Fellipe Lucas licensed under [CC0 1.0 Universal (CC0 1.0)](https://creativecommons.org/publicdomain/zero/1.0/).
+
+Theme screenshot image "Desert Sand Dunes" from [StockSnap.io](https://stocksnap.io/photo/sanddunes-desert-B64740E164) licensed under [CC0 1.0 Universal (CC0 1.0)](https://creativecommons.org/publicdomain/zero/1.0/).
+
 == Images ==
 
 Theme footer gallery image "Historic Water Mill" (landscape-water-nature-forest-wilderness-sky-529996-pxhere.com.jpg) from [PxHere.com](https://pxhere.com/en/photo/529996) licensed under [CC0 1.0 Universal (CC0 1.0)](https://creativecommons.org/publicdomain/zero/1.0/).
