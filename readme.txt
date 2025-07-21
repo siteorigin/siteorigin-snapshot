@@ -88,6 +88,11 @@ The following fonts are loaded locally from the theme's assets:
 
 == Changelog ==
 
+= 1.0.1 - 21 July 2025 =
+
+* Added Google Fonts source URLs and license details.
+* Added theme screenshot image attributions.
+
 = 1.0 - 21 July 2025 =
 
 * Initial release.
