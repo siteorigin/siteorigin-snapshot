@@ -71,8 +71,8 @@ Theme footer gallery image "Ocean Waves and Cliffs" (beach-sea-coast-water-rock-
 
 The following fonts are loaded locally from the theme's assets:
 
-- **Open Sans**: Used for body text and general content. Available in multiple weights and styles.
-- **Playfair Display**: Used for headings and decorative elements.
+- **Open Sans**: Used for body text and general content. Available in multiple weights and styles. Source: [Google Fonts](https://fonts.google.com/specimen/Open+Sans) licensed under [SIL Open Font License 1.1](https://scripts.sil.org/OFL).
+- **Playfair Display**: Used for headings and decorative elements. Source: [Google Fonts](https://fonts.google.com/specimen/Playfair+Display) licensed under [SIL Open Font License 1.1](https://scripts.sil.org/OFL).
 
 `/inc/template-tags.php` contains custom SVG icons designed specifically for SiteOrigin Snapshot. All icons are original designs created for this theme.
 
