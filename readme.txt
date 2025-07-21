@@ -49,6 +49,16 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 
 You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/copyleft/gpl.html.
 
+== Theme Screenshot ==
+
+Theme screenshot image "Iceland Aurora Borealis Northern Lights" (landscape-water-nature-wilderness-snow-winter-1209671-pxhere.com.jpg) from [PxHere.com](https://pxhere.com/en/photo/1209671) licensed under [CC0 1.0 Universal (CC0 1.0)](https://creativecommons.org/publicdomain/zero/1.0/).
+
+Theme screenshot image "Single Fin Uluwatu Sunset View" by Andrew Misplon licensed under [CC0 1.0 Universal (CC0 1.0)](https://creativecommons.org/publicdomain/zero/1.0/).
+
+Theme screenshot image "Paris Fashion Model" from [PxHere.com](https://pxhere.com/en/photo/1437635) by Jéssica, Fellipe Lucas licensed under [CC0 1.0 Universal (CC0 1.0)](https://creativecommons.org/publicdomain/zero/1.0/).
+
+Theme screenshot image "Desert Sand Dunes" from [StockSnap.io](https://stocksnap.io/photo/sanddunes-desert-B64740E164) licensed under [CC0 1.0 Universal (CC0 1.0)](https://creativecommons.org/publicdomain/zero/1.0/).
+
 == Images ==
 
 Theme footer gallery image "Historic Water Mill" (landscape-water-nature-forest-wilderness-sky-529996-pxhere.com.jpg) from [PxHere.com](https://pxhere.com/en/photo/529996) licensed under [CC0 1.0 Universal (CC0 1.0)](https://creativecommons.org/publicdomain/zero/1.0/).
@@ -71,12 +81,17 @@ Theme footer gallery image "Ocean Waves and Cliffs" (beach-sea-coast-water-rock-
 
 The following fonts are loaded locally from the theme's assets:
 
-- **Open Sans**: Used for body text and general content. Available in multiple weights and styles.
-- **Playfair Display**: Used for headings and decorative elements.
+- Open Sans: Used for body text and general content. Available in multiple weights and styles. Source: [Google Fonts](https://fonts.google.com/specimen/Open+Sans) licensed under [SIL Open Font License 1.1](https://scripts.sil.org/OFL).
+- Playfair Display: Used for headings and decorative elements. Source: [Google Fonts](https://fonts.google.com/specimen/Playfair+Display) licensed under [SIL Open Font License 1.1](https://scripts.sil.org/OFL).
 
 `/inc/template-tags.php` contains custom SVG icons designed specifically for SiteOrigin Snapshot. All icons are original designs created for this theme.
 
 == Changelog ==
+
+= 1.0.1 - 21 July 2025 =
+
+* Added Google Fonts source URLs and license details.
+* Added theme screenshot image attributions.
 
 = 1.0 - 21 July 2025 =
 
