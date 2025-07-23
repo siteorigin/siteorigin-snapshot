@@ -89,17 +89,14 @@ The following fonts are loaded locally from the theme's assets:
 == Changelog ==
 
 = 1.0.2 - 23 July 2025 =
-
 * Improved pattern organization by using appropriate WordPress core categories.
 * Set sidebar pattern to hidden following modern theme conventions.
 * Updated posts slider pattern to use banner, featured, and posts categories.
 * Removed style guide pattern.
 
 = 1.0.1 - 21 July 2025 =
-
 * Added Google Fonts source URLs and license details.
 * Added theme screenshot image attributions.
 
 = 1.0 - 21 July 2025 =
-
 * Initial release.
