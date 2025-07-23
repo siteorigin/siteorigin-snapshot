@@ -25,7 +25,7 @@
 <div class="wp-block-columns" style="padding-right:0px;padding-left:0px"><!-- wp:column -->
 <div class="wp-block-column">
 <!-- wp:pattern {"slug":"siteorigin-snapshot/post-loop-grid"} /-->
-<!-- wp:separator {"className":"is-style-wide pagination-separator","style":{"spacing":{"margin":{"bottom":"40px"}}},"backgroundColor":"platinum"} -->
+<!-- wp:separator {"className":"is-style-wide pagination-separator","style":{"spacing":{"margin":{"top":"80px","bottom":"40px"}}},"backgroundColor":"platinum"} -->
 <hr class="wp-block-separator has-text-color has-platinum-color has-alpha-channel-opacity has-platinum-background-color has-background is-style-wide pagination-separator" style="margin-bottom:40px"/>
 <!-- /wp:separator -->
 <!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"center"}} -->
