@@ -2,7 +2,7 @@
 /**
  * Title: Posts Slider
  * Slug: siteorigin-snapshot/posts-slider
- * Categories: posts
+ * Categories: banner, featured, posts
  * Keywords: slider, hero, featured, blog
  * Block Types: core/query
  */
