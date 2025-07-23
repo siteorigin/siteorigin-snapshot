@@ -2,8 +2,8 @@
 /**
  * Title: Sidebar
  * Slug: siteorigin-snapshot/sidebar
- * Categories: sidebar
- * Inserter: yes
+ * Categories: hidden
+ * Inserter: no
  */
 ?>
 <!-- wp:group {"style":{"spacing":{"padding":{"left":"40px"},"blockGap":"48px"}},"layout":{"type":"constrained"}} -->
