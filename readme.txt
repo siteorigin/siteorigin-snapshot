@@ -88,6 +88,10 @@ The following fonts are loaded locally from the theme's assets:
 
 == Changelog ==
 
+= 1.0.3 - 24 July 2025 =
+
+* Fixed tag formatting issue in style.css header.
+
 = 1.0.2 - 23 July 2025 =
 
 * Improved pattern organization by using appropriate WordPress core categories.
