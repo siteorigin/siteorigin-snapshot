@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Full Width Post
- * Slug: siteorigin-snapshot/singular-full-width
+ * Slug: siteorigin-snapshot/hidden-singular-full-width
  * Categories: hidden
  * Inserter: no
  */

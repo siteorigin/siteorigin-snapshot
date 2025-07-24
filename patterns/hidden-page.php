@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Page
- * Slug: siteorigin-snapshot/page
+ * Slug: siteorigin-snapshot/hidden-page
  * Categories: hidden
  * Inserter: no
  */

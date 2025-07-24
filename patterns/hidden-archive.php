@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Archive
- * Slug: siteorigin-snapshot/archive
+ * Slug: siteorigin-snapshot/hidden-archive
  * Categories: hidden
  * Inserter: no
  */
@@ -23,7 +23,7 @@
 
 <!-- wp:post-title {"level":3,"isLink":true,"style":{"typography":{"lineHeight":"1.2"},"spacing":{"margin":{"bottom":"16px","top":"32px"}}}} /-->
 
-<!-- wp:pattern {"slug":"siteorigin-snapshot/post-meta-author"} /-->
+<!-- wp:pattern {"slug":"siteorigin-snapshot/hidden-post-meta-author"} /-->
 
 <!-- wp:post-excerpt {"style":{"typography":{"lineHeight":"1.75"}},"fontSize":"regular"} /-->
 

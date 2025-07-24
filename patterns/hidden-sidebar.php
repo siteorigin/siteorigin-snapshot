@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Sidebar
- * Slug: siteorigin-snapshot/sidebar
+ * Slug: siteorigin-snapshot/hidden-sidebar
  * Categories: hidden
  * Inserter: no
  */
