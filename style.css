@@ -715,7 +715,7 @@ summary {
 		gap: 0;
 	}
 
-	.wp-block-avatar {
+	.wp-block-group .wp-block-avatar {
 		margin-right: 8px;
 	}
 
@@ -731,6 +731,7 @@ summary {
 			flex-direction: row;
 
 			&::after {
+				align-self: center;
 				border-right: 1px solid var(--wp--custom--color--icon);
 				content: ' ';
 				display: inline-block;

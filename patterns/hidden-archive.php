@@ -23,7 +23,7 @@
 
 <!-- wp:post-title {"level":3,"isLink":true,"style":{"typography":{"lineHeight":"1.2"},"spacing":{"margin":{"bottom":"16px","top":"32px"}}}} /-->
 
-<!-- wp:pattern {"slug":"siteorigin-snapshot/hidden-post-meta-author"} /-->
+<!-- wp:pattern {"slug":"siteorigin-snapshot/hidden-post-meta"} /-->
 
 <!-- wp:post-excerpt {"style":{"typography":{"lineHeight":"1.75"}},"fontSize":"regular"} /-->
 

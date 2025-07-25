@@ -14,7 +14,7 @@
 
 <!-- wp:post-title {"level":3,"isLink":true,"style":{"typography":{"lineHeight":"1.2"},"spacing":{"margin":{"bottom":"16px","top":"16px"}}},"fontSize":"medium"} /-->
 
-<!-- wp:pattern {"slug":"siteorigin-snapshot/hidden-post-meta"} /-->
+<!-- wp:pattern {"slug":"siteorigin-snapshot/hidden-post-meta-compact"} /-->
 
 <!-- wp:post-excerpt {"style":{"typography":{"lineHeight":"1.75"},"spacing":{"margin":{"top":"0px","bottom":"0px"}}},"fontSize":"regular"} /-->
 
