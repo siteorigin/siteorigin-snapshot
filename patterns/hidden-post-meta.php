@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Post Meta
- * Slug: siteorigin-snapshot/post-meta
+ * Slug: siteorigin-snapshot/hidden-post-meta
  * Categories: hidden
  * Inserter: no
  */

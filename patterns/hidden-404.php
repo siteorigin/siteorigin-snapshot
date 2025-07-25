@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: 404
- * Slug: siteorigin-snapshot/404
+ * Slug: siteorigin-snapshot/hidden-404
  * Categories: hidden
  * Inserter: no
  */

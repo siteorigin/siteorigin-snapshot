@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Blog Home
- * Slug: siteorigin-snapshot/home
+ * Slug: siteorigin-snapshot/hidden-home
  * Categories: hidden
  * Inserter: no
  */

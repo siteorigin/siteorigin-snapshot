@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Single Post (No Sidebar)
- * Slug: siteorigin-snapshot/single-post-no-sidebar
+ * Slug: siteorigin-snapshot/hidden-single-post-no-sidebar
  * Categories: hidden
  * Inserter: no
  */

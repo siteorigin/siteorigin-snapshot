@@ -1,8 +1,9 @@
 <?php
 /**
- * Title: Header - Mobile Menu Always Visible.
+ * Title: Header Mobile Menu
  * Slug: siteorigin-snapshot/header-mobile-menu
  * Categories: header
+ * Description: Header with mobile menu always visible.
  * Inserter: true
  * Block Types: core/template-part/header
  * Post Types: wp_template

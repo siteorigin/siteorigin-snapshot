@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Header
- * Slug: siteorigin-snapshot/header
+ * Slug: siteorigin-snapshot/header-default
  * Categories: header
  * Inserter: true
  * Block Types: core/template-part/header
