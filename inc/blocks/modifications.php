@@ -154,41 +154,6 @@ function siteorigin_snapshot_author_block( $block_content ) {
 }
 add_filter( 'render_block_core/post-author', 'siteorigin_snapshot_author_block' );
 
-/**
- * Adds a comment link to blocks with the 'entry-meta' class.
- *
- * This function checks if comments are open for the post. If comments are open, it then checks if the current group has the 'entry-meta' class assigned. If it does, the comment link is appended to to the block content.
- *
- * @param string $block_content The HTML content of the block being rendered.
- * @param array $block The full block, including name, attributes, and inner blocks.
- * @return string The modified block content with a comment link appended, if applicable.
- */
-function siteorigin_snapshot_group_add_comment_link_block( $block_content, $block ) {
-	if (
-		! comments_open() ||
-		empty( $block['attrs'] ) ||
-		empty( $block['attrs']['className'] ) ||
-		strpos( $block['attrs']['className'], 'entry-meta' ) === false ||
-		strpos( $block['attrs']['className'], 'entry-meta-comment' ) === false
-	) {
-		return $block_content;
-	}
-
-	if ( is_archive() ) {
-		return $block_content;
-	}
-
-	$comment_link = sprintf(
-		'<a href="%s" class="comment-link">%s %s</a>',
-		esc_url( get_comments_link() ),
-		siteorigin_snapshot_display_icon( 'comment' ),
-		esc_html( __( 'Leave a comment', 'siteorigin-snapshot' ) )
-	);
-
-	// Add the comment link just before closing the group block.
-	return preg_replace( '/<\/div>(?!.*<\/div>)/s', $comment_link . '</div>', $block_content );
-}
-add_filter( 'render_block_core/group', 'siteorigin_snapshot_group_add_comment_link_block', 10, 2 );
 
 /**
  * Filters the post terms block content to replace the span element with a more semantic element.

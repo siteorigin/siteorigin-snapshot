@@ -18,7 +18,5 @@
 <div class="wp-block-group"><!-- wp:post-date /--></div>
 <!-- /wp:group -->
 
-<!-- wp:post-terms {"term":"category","className":"is-style-entry-meta"} /-->
-
-<!-- wp:post-comments-link {"style":{"elements":{"link":{"color":{"text":"var:preset|color|accent"}}}},"textColor":"accent"} /--></div>
+<!-- wp:post-terms {"term":"category","className":"is-style-entry-meta"} /--></div>
 <!-- /wp:group -->
