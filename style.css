@@ -7,7 +7,7 @@ and seamless integration with Page Builder and SiteOrigin Blocks.
 Requires at least: 6.0
 Tested up to: 6.8
 Requires PHP: 7.4
-Version: 1.0.3
+Version: 1.0.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Text Domain: siteorigin-snapshot
@@ -715,7 +715,7 @@ summary {
 		gap: 0;
 	}
 
-	.wp-block-avatar {
+	.wp-block-group .wp-block-avatar {
 		margin-right: 8px;
 	}
 
@@ -731,6 +731,7 @@ summary {
 			flex-direction: row;
 
 			&::after {
+				align-self: center;
 				border-right: 1px solid var(--wp--custom--color--icon);
 				content: ' ';
 				display: inline-block;

@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Full Width Post (No Sidebar)
- * Slug: siteorigin-snapshot/singular-full-width-no-sidebar
+ * Slug: siteorigin-snapshot/hidden-singular-full-width-no-sidebar
  * Categories: hidden
  * Inserter: no
  */

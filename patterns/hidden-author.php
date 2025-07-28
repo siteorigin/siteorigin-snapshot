@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Author
- * Slug: siteorigin-snapshot/author
+ * Slug: siteorigin-snapshot/hidden-author
  * Categories: hidden
  * Inserter: no
  */

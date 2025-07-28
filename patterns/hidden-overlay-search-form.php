@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Overlay Search Form
- * Slug: siteorigin-snapshot/overlay-search-form
+ * Slug: siteorigin-snapshot/hidden-overlay-search-form
  * Categories: hidden
  * Inserter: no
  */

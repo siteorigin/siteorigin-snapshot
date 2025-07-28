@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Comments
- * Slug: siteorigin-snapshot/comments
+ * Slug: siteorigin-snapshot/hidden-comments
  * Categories: hidden
  * Inserter: no
  */

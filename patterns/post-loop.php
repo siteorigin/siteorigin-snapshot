@@ -13,7 +13,7 @@
 
 <!-- wp:post-title {"level":3,"isLink":true,"style":{"typography":{"fontSize":"40px","lineHeight":"1.2"},"spacing":{"margin":{"bottom":"16px","top":"32px"}}}} /-->
 
-<!-- wp:pattern {"slug":"siteorigin-snapshot/post-meta"} /-->
+<!-- wp:pattern {"slug":"siteorigin-snapshot/hidden-post-meta"} /-->
 
 <!-- wp:post-excerpt {"style":{"typography":{"lineHeight":"1.75"}},"fontSize":"regular"} /-->
 

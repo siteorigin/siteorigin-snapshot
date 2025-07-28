@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Single Post
- * Slug: siteorigin-snapshot/single-post
+ * Slug: siteorigin-snapshot/hidden-single-post
  * Categories: hidden
  * Inserter: no
  */

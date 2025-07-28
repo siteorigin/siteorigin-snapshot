@@ -13,7 +13,7 @@ if ( ! function_exists( 'siteorigin_snapshot_search_overlay' ) ) {
 		}
 
 		ob_start();
-		get_template_part( 'patterns/hidden-search-form' );
+		get_template_part( 'patterns/hidden-overlay-search-form' );
 		$search_form = ob_get_clean();
 		if ( empty( $search_form ) ) {
 			return;

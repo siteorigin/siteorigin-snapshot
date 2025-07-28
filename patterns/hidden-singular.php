@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Singular
- * Slug: siteorigin-snapshot/singular
+ * Slug: siteorigin-snapshot/hidden-singular
  * Categories: hidden
  * Inserter: no
  */

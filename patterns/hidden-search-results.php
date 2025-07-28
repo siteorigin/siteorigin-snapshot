@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: Archive
- * Slug: siteorigin-snapshot/hidden-archive
+ * Title: Search Results
+ * Slug: siteorigin-snapshot/hidden-search-results
  * Categories: hidden
  * Inserter: no
  */
@@ -10,9 +10,7 @@
 
 <!-- wp:group {"tagName":"main","layout":{"type":"constrained"}} -->
 <main class="wp-block-group"><!-- wp:group {"tagName":"header","className":"is-style-default","style":{"border":{"top":{"width":"0px","style":"none"},"right":{"width":"0px","style":"none"},"left":{"width":"0px","style":"none"},"bottom":{"color":"var:preset|color|platinum","width":"1px","style":"solid"}},"spacing":{"margin":{"bottom":"48px"},"blockGap":"8px","padding":{"bottom":"36px"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"left","verticalAlignment":"center"}} -->
-<header class="wp-block-group is-style-default" style="border-top-style:none;border-top-width:0px;border-right-style:none;border-right-width:0px;border-bottom-style:solid;border-bottom-color:var(--wp--preset--color--platinum);border-bottom-width:1px;border-left-style:none;border-left-width:0px;margin-bottom:48px;padding-bottom:36px"><!-- wp:query-title {"type":"archive","textAlign":"left","showPrefix":false,"style":{"layout":{"selfStretch":"fit","flexSize":null},"typography":{"lineHeight":"1.5","textDecoration":"none","textTransform":"uppercase","fontStyle":"normal","fontWeight":"700"}},"fontFamily":"open-sans"} /-->
-
-<!-- wp:term-description {"style":{"spacing":{"padding":{"bottom":"20px"}}}} /--></header>
+<header class="wp-block-group is-style-default" style="border-top-style:none;border-top-width:0px;border-right-style:none;border-right-width:0px;border-bottom-style:solid;border-bottom-color:var(--wp--preset--color--platinum);border-bottom-width:1px;border-left-style:none;border-left-width:0px;margin-bottom:48px;padding-bottom:36px"><!-- wp:query-title {"type":"search","textAlign":"left","showPrefix":false,"style":{"layout":{"selfStretch":"fit","flexSize":null},"typography":{"lineHeight":"1.5","textDecoration":"none","textTransform":"uppercase","fontStyle":"normal","fontWeight":"700"}},"fontFamily":"open-sans"} /--></header>
 <!-- /wp:group -->
 
 <!-- wp:columns {"style":{"spacing":{"padding":{"right":"0px","left":"0px"}}}} -->
