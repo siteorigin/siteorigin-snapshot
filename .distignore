@@ -1,0 +1,46 @@
+# Development files
+.git*
+.github/
+node_modules/
+package.json
+package-lock.json
+.distignore
+
+# Documentation
+*.md
+CONTRIBUTING.md
+CLAUDE.md
+
+# Development assets
+sass/
+*.scss
+*.map
+
+# Testing and validation
+tools/
+validation-test-report.md
+test-button-pattern.php
+
+# Training materials
+theme-training/
+.claude/
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Build directories
+/dist
+/build

@@ -1,0 +1,14 @@
+name: Release Theme
+
+on:
+  push:
+    tags: ['v*']
+
+jobs:
+  release:
+    uses: siteorigin/theme-workflows/.github/workflows/build-release.yml@master
+    with:
+      theme-name: siteorigin-snapshot
+      node-version: '18'
+    secrets:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

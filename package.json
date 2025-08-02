@@ -1,0 +1,29 @@
+{
+  "name": "siteorigin-snapshot",
+  "version": "1.0.0",
+  "description": "Build tools for SiteOrigin Snapshot theme",
+  "scripts": {
+    "build": "npm run build:css && npm run build:js",
+    "build:css": "sass sass/style.scss:style.css --style=expanded --no-source-map",
+    "build:js": "npm run minify:js",
+    "minify:js": "find js -name '*.js' ! -name '*.min.js' -type f -exec sh -c 'terser \"$1\" --compress --mangle --output \"${1%.js}.min.js\"' _ {} \\;",
+    "test-release": "act push --env GITHUB_REF=refs/tags/v1.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siteorigin/siteorigin-snapshot.git"
+  },
+  "keywords": [
+    "wordpress",
+    "theme",
+    "photography",
+    "portfolio",
+    "block-theme"
+  ],
+  "author": "SiteOrigin",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "sass": "^1.69.0",
+    "terser": "^5.24.0"
+  }
+}
