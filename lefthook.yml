@@ -1,0 +1,13 @@
+pre-commit:
+  parallel: true
+  skip:
+    - merge
+    - rebase
+  commands:
+    php-lint:
+      glob: "*.php"
+      run: bash -c 'for file in {staged_files}; do php -l "$file" || exit 1; done'
+    pattern-lint:
+      glob: "patterns/*.php"
+      run: bash -c 'for file in {staged_files}; do ./tools/lint-pattern "$file" || exit 1; done'
+      stage_fixed: true
