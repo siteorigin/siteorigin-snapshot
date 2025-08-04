@@ -63,11 +63,9 @@ function siteorigin_snapshot_alter_navigation_block( $block_content, $block ) {
 		return $block_content;
 	}
 
-
 	$openSubmenusOnClick = ! empty( $block['attrs'] ) && ! empty( $block['attrs']['openSubmenusOnClick'] );
 
 	siteorigin_snapshot_replace_menu_icons( $block_content, $openSubmenusOnClick );
-
 
 	return $block_content;
 }
@@ -104,10 +102,10 @@ function siteorigin_snapshot_replace_menu_icons( &$block_content, $openSubmenusO
 	$icon_submenu = siteorigin_snapshot_display_icon( 'chevron-right' );
 
 	// Identifying whether a menu item is in a sub menu requires us to index the start/end of each ul tag. Then we match the button to the correct ul range.
-	preg_match_all('/<ul[^>]*class="([^"]*)"[^>]*>|<\/ul>/', $block_content, $ulMatches, PREG_OFFSET_CAPTURE);
+	preg_match_all( '/<ul[^>]*class="([^"]*)"[^>]*>|<\/ul>/', $block_content, $ulMatches, PREG_OFFSET_CAPTURE );
 
-	$all_menus = [];
-	$current_menu = [];
+	$all_menus = array();
+	$current_menu = array();
 
 	foreach ( $ulMatches[0] as $match ) {
 		if ( strpos( $match[0], '</ul>' ) === false ) {
@@ -121,7 +119,7 @@ function siteorigin_snapshot_replace_menu_icons( &$block_content, $openSubmenusO
 					'start' => $start[1],
 					// Include the length of </ul> to cover its full range.
 					'end' => $match[1] + strlen( $match[0] ),
-					'class' => $start[0]
+					'class' => $start[0],
 				);
 			}
 		}
@@ -147,7 +145,7 @@ function siteorigin_snapshot_replace_menu_icons( &$block_content, $openSubmenusO
 				$submenu_toggle_position < $submenu['end']
 			) {
 				// Is this menu item in a sub menu?
-				$toggle_icon = strpos( $submenu['class'], 'wp-block-navigation__submenu-container') !== false ? $icon_submenu : $icon_top_level;
+				$toggle_icon = strpos( $submenu['class'], 'wp-block-navigation__submenu-container' ) !== false ? $icon_submenu : $icon_top_level;
 
 				// Add the correct sub menu toggle icon.
 				$new_submenu_toggle = preg_replace(

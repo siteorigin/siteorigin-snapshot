@@ -20,87 +20,135 @@ if ( ! defined( 'ABSPATH' ) ) {
 function siteorigin_snapshot_add_block_variations() {
 	// Register "Unstyled" variations.
 	// These are variations where we don't apply custom styling to them.
-	register_block_style( 'core/table', array(
-		'name'         => 'unstyled',
-		'label'        => __( 'Unstyled', 'siteorigin-snapshot' ),
-	) );
+	register_block_style(
+		'core/table',
+		array(
+			'name'         => 'unstyled',
+			'label'        => __( 'Unstyled', 'siteorigin-snapshot' ),
+		)
+	);
 
-	register_block_style( 'core/tag-cloud', array(
-		'name'         => 'unstyled',
-		'label'        => __( 'Unstyled', 'siteorigin-snapshot' ),
-	) );
+	register_block_style(
+		'core/tag-cloud',
+		array(
+			'name'         => 'unstyled',
+			'label'        => __( 'Unstyled', 'siteorigin-snapshot' ),
+		)
+	);
 
-	register_block_style( 'core/latest-posts', array(
-		'name'         => 'unstyled',
-		'label'        => __( 'Unstyled', 'siteorigin-snapshot' ),
-	) );
+	register_block_style(
+		'core/latest-posts',
+		array(
+			'name'         => 'unstyled',
+			'label'        => __( 'Unstyled', 'siteorigin-snapshot' ),
+		)
+	);
 
-	register_block_style( 'core/tag', array(
-		'name'         => 'unstyled',
-		'label'        => __( 'Unstyled', 'siteorigin-snapshot' ),
-	) );
+	register_block_style(
+		'core/tag',
+		array(
+			'name'         => 'unstyled',
+			'label'        => __( 'Unstyled', 'siteorigin-snapshot' ),
+		)
+	);
 
-	register_block_style( 'core/post_tag', array(
-		'name'         => 'unstyled',
-		'label'        => __( 'Unstyled', 'siteorigin-snapshot' ),
-	) );
+	register_block_style(
+		'core/post_tag',
+		array(
+			'name'         => 'unstyled',
+			'label'        => __( 'Unstyled', 'siteorigin-snapshot' ),
+		)
+	);
 
-	register_block_style( 'core/post-terms', array(
-		'name'         => 'unstyled',
-		'label'        => __( 'Unstyled', 'siteorigin-snapshot' ),
-	) );
+	register_block_style(
+		'core/post-terms',
+		array(
+			'name'         => 'unstyled',
+			'label'        => __( 'Unstyled', 'siteorigin-snapshot' ),
+		)
+	);
 
 	// Register "Dark" and "Light" variations.
-	register_block_style( 'core/tag-cloud', array(
-		'name'         => 'dark',
-		'label'        => __( 'Dark', 'siteorigin-snapshot' ),
-	) );
+	register_block_style(
+		'core/tag-cloud',
+		array(
+			'name'         => 'dark',
+			'label'        => __( 'Dark', 'siteorigin-snapshot' ),
+		)
+	);
 
-	register_block_style( 'core/tag-cloud', array(
-		'name'         => 'light',
-		'label'        => __( 'Light', 'siteorigin-snapshot' ),
-	) );
+	register_block_style(
+		'core/tag-cloud',
+		array(
+			'name'         => 'light',
+			'label'        => __( 'Light', 'siteorigin-snapshot' ),
+		)
+	);
 
-	register_block_style( 'core/button', array(
-		'name'         => 'dark',
-		'label'        => __( 'Dark', 'siteorigin-snapshot' ),
-	) );
+	register_block_style(
+		'core/button',
+		array(
+			'name'         => 'dark',
+			'label'        => __( 'Dark', 'siteorigin-snapshot' ),
+		)
+	);
 
-	register_block_style( 'core/button', array(
-		'name'         => 'light',
-		'label'        => __( 'Light', 'siteorigin-snapshot' ),
-	) );
+	register_block_style(
+		'core/button',
+		array(
+			'name'         => 'light',
+			'label'        => __( 'Light', 'siteorigin-snapshot' ),
+		)
+	);
 
-	register_block_style( 'core/read-more', array(
-		'name'         => 'dark',
-		'label'        => __( 'Dark', 'siteorigin-snapshot' ),
-	) );
+	register_block_style(
+		'core/read-more',
+		array(
+			'name'         => 'dark',
+			'label'        => __( 'Dark', 'siteorigin-snapshot' ),
+		)
+	);
 
-	register_block_style( 'core/read-more', array(
-		'name'         => 'light',
-		'label'        => __( 'Light', 'siteorigin-snapshot' ),
-	) );
+	register_block_style(
+		'core/read-more',
+		array(
+			'name'         => 'light',
+			'label'        => __( 'Light', 'siteorigin-snapshot' ),
+		)
+	);
 
 	// Block Variations with styles.
-	register_block_style( 'core/button', array(
-		'name'         => 'tag',
-		'label'        => __( 'Tag', 'siteorigin-snapshot' ),
-	) );
+	register_block_style(
+		'core/button',
+		array(
+			'name'         => 'tag',
+			'label'        => __( 'Tag', 'siteorigin-snapshot' ),
+		)
+	);
 
-	register_block_style( 'core/query', array(
-		'name'         => 'posts-slider',
-		'label'        => __( 'Posts Slider', 'siteorigin-snapshot' ),
-	) );
+	register_block_style(
+		'core/query',
+		array(
+			'name'         => 'posts-slider',
+			'label'        => __( 'Posts Slider', 'siteorigin-snapshot' ),
+		)
+	);
 
-	register_block_style( 'core/query-title', array(
-		'name'         => 'underline',
-		'label'        => __( 'Underline', 'siteorigin-snapshot' ),
-	) );
+	register_block_style(
+		'core/query-title',
+		array(
+			'name'         => 'underline',
+			'label'        => __( 'Underline', 'siteorigin-snapshot' ),
+		)
+	);
 
-	register_block_style( 'core/post-terms', array(
-		'name'         => 'entry-meta',
-		'label'        => __( 'Entry Meta', 'siteorigin-snapshot' ),
-	) );
+	register_block_style(
+		'core/post-terms',
+		array(
+			'name'         => 'entry-meta',
+			'label'        => __( 'Entry Meta', 'siteorigin-snapshot' ),
+		)
+	);
 }
 add_action( 'init', 'siteorigin_snapshot_add_block_variations' );
 

@@ -8,20 +8,23 @@ if ( ! function_exists( 'siteorigin_snapshot_display_icon' ) ) {
 			ob_start();
 		}
 		switch ( $type ) {
-			case 'close': ?>
+			case 'close':
+				?>
 				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" aria-label="<?php esc_attr_e( 'Close Model', 'siteorigin-snapshot' ); ?>" class="snapshot-icon"><path d="M18 6 6 18M6 6l12 12"/></svg>
 				<?php
 				break;
 
-			case 'search': ?>
+			case 'search':
+				?>
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label="<?php esc_attr_e( 'Search', 'siteorigin-snapshot' ); ?>" class="snapshot-icon"><g stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M3 10a7 7 0 1 0 14 0 7 7 0 0 0-14 0ZM21 21l-6-6"/></g></svg>
 				<?php
-			break;
+				break;
 
-			case 'calendar': ?>
+			case 'calendar':
+				?>
 				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" aria-hidden="true" class="snapshot-icon"><path d="M4 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7ZM16 3v4M8 3v4M4 11h16M11 15h1M12 15v3"/></svg>
 				<?php
-			break;
+				break;
 
 			case 'chevron-left':
 				return '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" aria-hidden="true" class="snapshot-icon" viewBox="0 0 24 24"><path stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 18-6-6 6-6"/></svg>';

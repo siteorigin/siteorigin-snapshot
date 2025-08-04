@@ -9,7 +9,7 @@
  *
  * @package siteorigin-snapshot
  * @since 1.0
- * 
+ *
  * IMPORTANT NOTICE: Please don't edit this file; any changes made here will be lost during the theme update process.
  * If you need to add custom functions, use Code Snippets (https://wordpress.org/plugins/code-snippets/), or a child theme.
  */
@@ -28,67 +28,83 @@ if ( ! function_exists( 'siteorigin_snapshot_setup' ) ) {
 
 		add_filter( 'should_load_remote_block_patterns', '__return_false' );
 
-		add_theme_support( 'html5', array(
-			'caption',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'navigation-widgets',
-			'script',
-			'search-form',
-			'style',
-			'widgets',
-		) );
+		add_theme_support(
+			'html5',
+			array(
+				'caption',
+				'comment-form',
+				'comment-list',
+				'gallery',
+				'navigation-widgets',
+				'script',
+				'search-form',
+				'style',
+				'widgets',
+			)
+		);
 
 		add_editor_style( 'style.css' );
 
-		add_theme_support( 'custom-background', apply_filters( 'siteorigin_snapshot_custom_background_args', array(
-				'default-color' => '#ffffff',
-				'default-image' => '',
-		) ) );
+		add_theme_support(
+			'custom-background',
+			apply_filters(
+				'siteorigin_snapshot_custom_background_args',
+				array(
+					'default-color' => '#ffffff',
+					'default-image' => '',
+				)
+			)
+		);
 
-		register_nav_menus( array(
-			'header' => esc_html__( 'Header Menu', 'siteorigin-snapshot' ),
-		) );
+		register_nav_menus(
+			array(
+				'header' => esc_html__( 'Header Menu', 'siteorigin-snapshot' ),
+			)
+		);
 
 		// Adjust content width for classic usage.
 		$GLOBALS['content_width'] = apply_filters( 'siteorigin_snapshot_content_width', 1128 );
-
 	}
 }
 add_action( 'after_setup_theme', 'siteorigin_snapshot_setup' );
 
 function siteorigin_snapshot_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'siteorigin-snapshot' ),
-		'id'            => 'sidebar-main',
-		'description'   => esc_html__( 'Visible on posts and pages that use the Default or Full Width, With Sidebar layout.', 'siteorigin-snapshot' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h3 class="widget-title">',
-		'after_title'   => '</h3>',
-	) );
-
-	register_sidebar( array(
-		'name'          => esc_html__( 'Footer', 'siteorigin-snapshot' ),
-		'id'            => 'sidebar-footer',
-		'description'   => esc_html__( 'A column will be automatically assigned to each widget inserted', 'siteorigin-snapshot' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h4 class="widget-title">',
-		'after_title'   => '</h4>',
-	) );
-
-	if ( function_exists( 'is_woocommerce' ) ) {
-		register_sidebar( array(
-			'name'          => esc_html__( 'Shop', 'siteorigin-snapshot' ),
-			'id'            => 'shop-sidebar',
-			'description'   => esc_html__( 'Displays on WooCommerce pages.', 'siteorigin-snapshot' ),
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Sidebar', 'siteorigin-snapshot' ),
+			'id'            => 'sidebar-main',
+			'description'   => esc_html__( 'Visible on posts and pages that use the Default or Full Width, With Sidebar layout.', 'siteorigin-snapshot' ),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside>',
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
-		) );
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer', 'siteorigin-snapshot' ),
+			'id'            => 'sidebar-footer',
+			'description'   => esc_html__( 'A column will be automatically assigned to each widget inserted', 'siteorigin-snapshot' ),
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h4 class="widget-title">',
+			'after_title'   => '</h4>',
+		)
+	);
+
+	if ( function_exists( 'is_woocommerce' ) ) {
+		register_sidebar(
+			array(
+				'name'          => esc_html__( 'Shop', 'siteorigin-snapshot' ),
+				'id'            => 'shop-sidebar',
+				'description'   => esc_html__( 'Displays on WooCommerce pages.', 'siteorigin-snapshot' ),
+				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</aside>',
+				'before_title'  => '<h3 class="widget-title">',
+				'after_title'   => '</h3>',
+			)
+		);
 	}
 }
 add_action( 'widgets_init', 'siteorigin_snapshot_widgets_init' );
@@ -127,10 +143,9 @@ function siteorigin_snapshot_register_scripts() {
 			),
 			'posts_slider' => array(
 				'current' => esc_html__( 'Current Slide', 'siteorigin-snapshot' ),
-			)
+			),
 		)
 	);
-
 
 	// Lightbox customizations for the core Image Block.
 	wp_register_script(
@@ -179,7 +194,7 @@ add_action( 'wp_enqueue_scripts', 'siteorigin_snapshot_enqueue_assets' );
 
 function siteorigin_snapshot_enqueue_editor_assets() {
 	if ( ! is_admin() ) {
-	 	return;
+		return;
 	}
 
 	// Editor specific.
@@ -209,9 +224,11 @@ function siteorigin_snapshot_enqueue_editor_assets() {
 add_action( 'enqueue_block_assets', 'siteorigin_snapshot_enqueue_editor_assets' );
 
 
-function siteorigin_snapshot_viewport_tag() { ?>
+function siteorigin_snapshot_viewport_tag() {
+	?>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<?php }
+	<?php
+}
 add_action( 'wp_head', 'siteorigin_snapshot_viewport_tag' );
 
 

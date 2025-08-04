@@ -63,7 +63,7 @@ add_filter( 'render_block_core/site-title', 'siteorigin_snapshot_site_title_bloc
 /**
  * Modify the Author block on all pages except for the author archive.
  *
- * Adds "All Author Posts" link below the bio and increases avatar size 
+ * Adds "All Author Posts" link below the bio and increases avatar size
  * with high resolution support for crisp display on high-DPI screens.
  *
  * @param string $block_content The original block content.
@@ -200,8 +200,8 @@ add_filter( 'render_block_core/post-terms', 'siteorigin_snapshot_post_terms_bloc
 /**
  * Enhance avatar block resolution for high-DPI displays.
  *
- * Modifies core/avatar block output to load higher resolution images while 
- * maintaining original display dimensions. Doubles image resolution for 
+ * Modifies core/avatar block output to load higher resolution images while
+ * maintaining original display dimensions. Doubles image resolution for
  * crisp display on high-DPI screens.
  *
  * @param string $block_content The block content.
@@ -220,7 +220,7 @@ function siteorigin_snapshot_enhance_avatar_block_resolution( $block_content, $b
 	// Handle Gravatar URLs.
 	$block_content = preg_replace_callback(
 		'/(https:\/\/[^\s]+gravatar\.com\/avatar[^\s]+\?[^"]*s=)(\d+)([^"]*")/',
-		function( $matches ) use ( $new_size ) {
+		function ( $matches ) use ( $new_size ) {
 			return $matches[1] . $new_size . $matches[3];
 		},
 		$block_content
@@ -229,7 +229,7 @@ function siteorigin_snapshot_enhance_avatar_block_resolution( $block_content, $b
 	// Handle local WordPress uploads.
 	$block_content = preg_replace_callback(
 		'/src="([^"]+)-(\d+)x(\d+)(\.[^"]+)"/',
-		function( $matches ) {
+		function ( $matches ) {
 			$base_url  = $matches[1];
 			$width     = (int) $matches[2];
 			$height    = (int) $matches[3];

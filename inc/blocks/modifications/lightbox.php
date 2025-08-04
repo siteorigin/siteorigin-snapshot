@@ -39,7 +39,7 @@ function siteorigin_snapshot_improve_lightbox( $block_content, $block ) {
 	wp_enqueue_style( 'siteorigin-snapshot-lightbox' );
 
 	// Does the block have at least two lightboxes?
-	$numberOfLightboxes = substr_count($block_content, 'lightbox-trigger');
+	$numberOfLightboxes = substr_count( $block_content, 'lightbox-trigger' );
 	if ( $numberOfLightboxes < 2 ) {
 		return $block_content;
 	}
@@ -74,7 +74,7 @@ function siteorigin_snapshot_override_lightbox_close_icon( $block_content, $bloc
 	$i = 0;
 	$block_content = preg_replace_callback(
 		'/<svg(.*?)<\/svg>/s',
-		function ( $matches ) use ( $snapshot_icon, & $i ) {
+		function ( $matches ) use ( $snapshot_icon, &$i ) {
 			$i++;
 			if ( $i === 2 ) {
 				return $snapshot_icon;
