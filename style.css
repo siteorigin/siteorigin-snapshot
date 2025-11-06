@@ -463,7 +463,7 @@ header.wp-block-template-part {
 
 	/* Improve submenu alignment on all devices. */
 	.wp-block-navigation__submenu-container {
-		padding: 23px 0 0;
+		padding: 0;
 		white-space: nowrap;
 
 		.so-mobile-menu-open & {
@@ -1505,4 +1505,3 @@ button:focus > .snapshot-icon {
 		stroke: var(--wp--preset--color--accent);
 	}
 }
-
