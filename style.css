@@ -46,7 +46,7 @@ button {
 	cursor: pointer;
 }
 
-:where(button:not(.wp-block-button__link):not(.wp-element-button):not(.components-button)) {
+:where(button:not(.wp-block-button__link):not(.wp-element-button):not(.components-button):not(.wc-block-mini-cart__button )) {
 	background-color: var(--wp--custom--color--button--regular--background);
 	border: 1px solid var(--wp--custom--color--button--regular--text);
 	color: var(--wp--custom--color--button--regular--text);
@@ -139,7 +139,11 @@ body.admin-bar .wp-site-blocks {
 }
 
 /* Header */
-header.wp-block-template-part {
+:where(header.wp-block-template-part, .snapshot-header-wrapper) {
+
+	.main-header a {
+		text-decoration: none;
+	}
 
 	&:has(.is-position-sticky) {
 		position: sticky;
@@ -463,7 +467,7 @@ header.wp-block-template-part {
 
 	/* Improve submenu alignment on all devices. */
 	.wp-block-navigation__submenu-container {
-		padding: 0;
+		padding: 0 !important;
 		white-space: nowrap;
 
 		.so-mobile-menu-open & {
@@ -566,7 +570,7 @@ header.wp-block-template-part {
 	}
 
 	/* Override WP Block Styling to add navigation menu item hover. */
-	header .wp-block-navigation .wp-block-navigation-item__content.wp-block-navigation-item__content {
+	:where(header.wp-block-template-part, .snapshot-header-wrapper) .wp-block-navigation .wp-block-navigation-item__content.wp-block-navigation-item__content {
 
 		&:hover,
 		&:focus {
@@ -848,7 +852,7 @@ ol.so-is-block {
 }
 
 /* Search */
-header.wp-block-template-part {
+:where(header.wp-block-template-part, .snapshot-header-wrapper) {
 
 	.wp-block-search__button {
 		background: none;
