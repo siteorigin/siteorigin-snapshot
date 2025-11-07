@@ -54,14 +54,22 @@
 		}
 	}
 
+	.snapshot-featured-group .taxonomy-category:where(:not(.has-text-color):not(.has-link-color)) {
+		color: var(--wp--preset--color--platinum);
+	}
+
 	.taxonomy-category::before {
-		background: var(--wp--preset--color--accent);
+		background: currentColor;
 		content: '';
 		display: inline-block;
 		height: 1px;
 		margin-bottom: 3.5px;
 		margin-right: 12px;
 		width: 32px;
+	}
+
+	.snapshot-featured-group .taxonomy-category:where(:not(.has-text-color):not(.has-link-color))::before {
+		background: var(--wp--preset--color--accent);
 	}
 
 	.snapshot-featured-group,
@@ -163,25 +171,20 @@
 
 	.wp-block-read-more {
 		background: none;
+		border: none;
 
 		path {
-			stroke: var(--wp--preset--color--secondary);
+			stroke: currentColor;
+			transition: stroke 150ms ease-in-out;
 		}
 
 		&:hover,
 		&:focus {
 			background: none !important;
-
-			path {
-				stroke: var(--wp--preset--color--accent) !important;
-			}
+			border: none;
 		}
 	}
 
-	a:hover,
-	a:focus {
-		color: var(--wp--preset--color--accent) !important;
-	}
 }
 
 /* Remove header bottom margin if there's a posts slider present. */
