@@ -11,3 +11,19 @@ pre-commit:
       glob: "patterns/*.php"
       run: bash -c 'for file in {staged_files}; do ./tools/lint-pattern "$file" || exit 1; done'
       stage_fixed: true
+    phpcs:
+      glob: "*.php"
+      run: ./bin/siteorigin-hook.sh phpcs "{staged_files}"
+      stage_fixed: true
+    phpunit:
+      run: ./bin/siteorigin-hook.sh phpunit
+pre-push:
+  skip:
+    - merge
+    - rebase
+  commands:
+    psalm:
+      glob: "*.php"
+      run: ./bin/siteorigin-hook.sh psalm "{staged_files}"
+    phpunit:
+      run: ./bin/siteorigin-hook.sh phpunit

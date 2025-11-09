@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+LINTER_PATH="${SITEORIGIN_PATTERN_LINTER_PATH:-$HOME/Sites/siteorigin-pattern-system/tools/lint-pattern}"
+
+if [ ! -x "$LINTER_PATH" ]; then
+	echo "Pattern linter not found."
+	echo "Install siteorigin-pattern-system and/or set SITEORIGIN_PATTERN_LINTER_PATH to the lint-pattern script." >&2
+	exit 1
+fi
+
+exec "$LINTER_PATH" "$@"

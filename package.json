@@ -23,6 +23,7 @@
   "author": "SiteOrigin",
   "license": "GPL-3.0",
   "devDependencies": {
+    "lefthook": "^2.0.2",
     "sass": "^1.69.0",
     "terser": "^5.24.0"
   }
