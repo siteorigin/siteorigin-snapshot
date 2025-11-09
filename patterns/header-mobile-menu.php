@@ -9,8 +9,8 @@
  * Post Types: wp_template
  */
 ?>
-<!-- wp:group {"className":"alignfull has-secondary-color has-primary-background-color has-text-color has-background has-link-color","metadata":{"name":"Header"},"style":{"spacing":{"padding":{"top":"32px","bottom":"32px","margin":{"bottom":"48px"}},"margin":{"bottom":"48px"}},"position":{"type":"sticky","top":"0px"}}} -->
-<div class="wp-block-group alignfull has-secondary-color has-primary-background-color has-text-color has-background has-link-color" style="margin-bottom:48px;padding-top:32px;padding-bottom:32px"><!-- wp:group {"style":{"position":{"type":""},"spacing":{"padding":{"right":"0px","left":"0px"}}},"layout":{"type":"constrained"}} -->
+<!-- wp:group {"className":"snapshot-header-wrapper alignfull has-secondary-color has-primary-background-color has-text-color has-background has-link-color","metadata":{"name":"Header"},"style":{"spacing":{"padding":{"top":"32px","bottom":"32px","margin":{"bottom":"48px"}},"margin":{"bottom":"48px"}},"position":{"type":"sticky","top":"0px"}}} -->
+<div class="wp-block-group snapshot-header-wrapper alignfull has-secondary-color has-primary-background-color has-text-color has-background has-link-color" style="margin-bottom:48px;padding-top:32px;padding-bottom:32px"><!-- wp:group {"style":{"position":{"type":""},"spacing":{"padding":{"right":"0px","left":"0px"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group" style="padding-right:0px;padding-left:0px"><!-- wp:group {"className":"main-header has-secondary-color has-text-color","style":{"position":{"type":""}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
 <div class="wp-block-group main-header has-secondary-color has-text-color"><!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 <div class="wp-block-group"><!-- wp:site-logo {"className":"site-logo"} /-->
