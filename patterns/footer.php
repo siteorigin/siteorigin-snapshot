@@ -8,8 +8,8 @@
  * Post Types: wp_template
  */
 ?>
-<!-- wp:group {"className":"alignfull has-secondary-color has-primary-background-color has-text-color has-background has-link-color","style":{"spacing":{"margin":{"bottom":"0px","top":"80px"},"padding":{"top":"64px","bottom":"43px"}},"elements":{"link":{"color":{"text":"var:preset|color|secondary"}}}},"textColor":"subdued-text","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull has-secondary-color has-primary-background-color has-text-color has-background has-link-color has-subdued-text-color" style="margin-top:80px;margin-bottom:0px;padding-top:64px;padding-bottom:43px"><!-- wp:columns {"style":{"spacing":{"padding":{"right":"0px","left":"0px","top":"0px","bottom":"0px"},"blockGap":{"top":"40px","left":"24px"}}}} -->
+<!-- wp:group {"className":"snapshot-footer alignfull has-secondary-color has-primary-background-color has-text-color has-background has-link-color","style":{"spacing":{"margin":{"bottom":"0px","top":"80px"},"padding":{"top":"64px","bottom":"43px"}},"elements":{"link":{"color":{"text":"var:preset|color|secondary"}}}},"textColor":"subdued-text","layout":{"type":"constrained"}} -->
+<div class="wp-block-group snapshot-footer alignfull has-secondary-color has-primary-background-color has-text-color has-background has-link-color has-subdued-text-color" style="margin-top:80px;margin-bottom:0px;padding-top:64px;padding-bottom:43px"><!-- wp:columns {"style":{"spacing":{"padding":{"right":"0px","left":"0px","top":"0px","bottom":"0px"},"blockGap":{"top":"40px","left":"24px"}}}} -->
 <div class="wp-block-columns" style="padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px"><!-- wp:column -->
 <div class="wp-block-column"><!-- wp:heading {"level":4,"className":"has-secondary-color has-text-color has-link-color","style":{"typography":{"fontWeight":"500"}}} -->
 <h4 class="wp-block-heading has-secondary-color has-text-color has-link-color" style="font-weight:500;"><?php esc_html_e( 'Snapshot', 'siteorigin-snapshot' );?></h4>

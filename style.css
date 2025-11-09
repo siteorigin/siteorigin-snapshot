@@ -693,6 +693,11 @@ summary {
 	}
 }
 
+/* Keep footer links unlined even when the pattern is rendered inside .entry-content. */
+.snapshot-footer :where(a) {
+	text-decoration: none;
+}
+
 .wp-block-group:is(:empty) {
 	display: none;
 }
