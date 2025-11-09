@@ -720,28 +720,12 @@ summary {
 	}
 }
 
-/* Posts slider preview overrides. */
+/* Posts slider title/read-more unlined in previews. */
 .snapshot-posts-slider-loop {
 
 	.wp-block-post-title a,
 	.wp-block-read-more {
 		text-decoration: none;
-	}
-
-	.wp-block-post-terms {
-		display: inline-flex;
-		gap: 12px;
-	}
-
-	.wp-block-post-terms a {
-		background: none;
-		color: inherit;
-		padding: 0;
-		text-decoration: none;
-	}
-
-	.wp-block-post-terms__separator {
-		display: inline;
 	}
 }
 
@@ -1470,6 +1454,23 @@ body.author :where(.wp-block-post-author-biography) {
 		.wp-block-post-terms__separator {
 			display: none;
 		}
+	}
+
+	/* Posts slider preview overrides. */
+	.entry-content .snapshot-posts-slider-loop & {
+		display: inline-flex;
+		gap: 12px;
+	}
+
+	.entry-content .snapshot-posts-slider-loop & a {
+		background: none;
+		color: inherit;
+		padding: 0;
+		text-decoration: none;
+	}
+
+	.entry-content .snapshot-posts-slider-loop & .wp-block-post-terms__separator {
+		display: inline;
 	}
 }
 
