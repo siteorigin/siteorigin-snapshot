@@ -720,6 +720,31 @@ summary {
 	}
 }
 
+/* Posts slider preview overrides. */
+.snapshot-posts-slider-loop {
+
+	.wp-block-post-title a,
+	.wp-block-read-more {
+		text-decoration: none;
+	}
+
+	.wp-block-post-terms {
+		display: inline-flex;
+		gap: 12px;
+	}
+
+	.wp-block-post-terms a {
+		background: none;
+		color: inherit;
+		padding: 0;
+		text-decoration: none;
+	}
+
+	.wp-block-post-terms__separator {
+		display: inline;
+	}
+}
+
 .wp-block-group:is(:empty) {
 	display: none;
 }
