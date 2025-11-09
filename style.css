@@ -720,7 +720,7 @@ summary {
 	}
 }
 
-/* Posts slider title/read-more unlined in previews. */
+/* Keep slider title/read-more unlined when slider is rendered inside entry content. */
 .snapshot-posts-slider-loop {
 
 	.wp-block-post-title a,
@@ -1456,22 +1456,6 @@ body.author :where(.wp-block-post-author-biography) {
 		}
 	}
 
-	/* Posts slider preview overrides. */
-	.entry-content .snapshot-posts-slider-loop & {
-		display: inline-flex;
-		gap: 12px;
-	}
-
-	.entry-content .snapshot-posts-slider-loop & a {
-		background: none;
-		color: inherit;
-		padding: 0;
-		text-decoration: none;
-	}
-
-	.entry-content .snapshot-posts-slider-loop & .wp-block-post-terms__separator {
-		display: inline;
-	}
 }
 
 /* Add hover states to Button Blocks that don't have them. */
@@ -1499,6 +1483,23 @@ footer .wp-block-button__link.wp-element-button {
 			stroke: var(--wp--custom--color--button--hover--text);
 		}
 	}
+}
+
+/* Posts slider categories when the slider sits inside entry content (e.g., previews or post body). */
+.entry-content .snapshot-posts-slider-loop .wp-block-post-terms:not(.is-style-unstyled):not(.is-style-entry-meta):not(.taxonomy-product_cat):not(.wc-block-components-product-sku) {
+	display: inline-flex;
+	gap: 12px;
+}
+
+.entry-content .snapshot-posts-slider-loop .wp-block-post-terms:not(.is-style-unstyled):not(.is-style-entry-meta):not(.taxonomy-product_cat):not(.wc-block-components-product-sku) a {
+	background: none;
+	color: inherit;
+	padding: 0;
+	text-decoration: none;
+}
+
+.entry-content .snapshot-posts-slider-loop .wp-block-post-terms:not(.is-style-unstyled):not(.is-style-entry-meta):not(.taxonomy-product_cat):not(.wc-block-components-product-sku) .wp-block-post-terms__separator {
+	display: inline;
 }
 
 /* Prevent WP From Stretching Buttons. */
