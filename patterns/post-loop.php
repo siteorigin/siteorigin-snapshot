@@ -7,8 +7,8 @@
  * Block Types: core/query
  */
 ?>
-<!-- wp:query {"queryId":6,"query":{"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"layout":{"type":"constrained"}} -->
-<div class="wp-block-query"><!-- wp:post-template {"style":{"spacing":{"blockGap":"64px"}}} -->
+<!-- wp:query {"queryId":6,"query":{"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"className":"snapshot-post-loop","layout":{"type":"constrained"}} -->
+<div class="wp-block-query snapshot-post-loop"><!-- wp:post-template {"style":{"spacing":{"blockGap":"64px"}}} -->
 <!-- wp:post-featured-image {"isLink":true,"aspectRatio":"auto","width":"784px","height":"496px"} /-->
 
 <!-- wp:post-title {"level":3,"isLink":true,"style":{"typography":{"fontSize":"40px","lineHeight":"1.2"},"spacing":{"margin":{"bottom":"16px","top":"32px"}}}} /-->

@@ -698,6 +698,28 @@ summary {
 	text-decoration: none;
 }
 
+/* Keep post loop elements unlined even when rendered inside .entry-content. */
+.snapshot-post-loop {
+
+	.wp-block-post-title a,
+	.entry-meta a,
+	.wp-block-post-terms a,
+	.wp-block-read-more {
+		text-decoration: none;
+	}
+
+	.wp-block-post-title a:hover,
+	.wp-block-post-title a:focus,
+	.entry-meta a:hover,
+	.entry-meta a:focus,
+	.wp-block-post-terms a:hover,
+	.wp-block-post-terms a:focus,
+	.wp-block-read-more:hover,
+	.wp-block-read-more:focus {
+		text-decoration: none;
+	}
+}
+
 .wp-block-group:is(:empty) {
 	display: none;
 }
