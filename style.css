@@ -604,9 +604,9 @@ body.admin-bar .wp-site-blocks {
 	}
 
 	.snapshot-icon path {
-		color: var(--wp--preset--color--secondary);
+		color: currentColor;
 		fill: transparent;
-		stroke: var(--wp--preset--color--secondary);
+		stroke: currentColor;
 	}
 }
 
@@ -899,6 +899,7 @@ ol.so-is-block {
 		background: none;
 		border: none;
 		cursor: pointer;
+		color: inherit;
 		font-size: inherit; /* Inherit from parent container */
 		padding: 0 !important; /* Remove padding - wrapper already has it */
 		display: flex !important;
@@ -931,6 +932,13 @@ ol.so-is-block {
 
 		svg {
 			fill: none !important;
+			height: auto;
+			width: auto;
+
+			path {
+				stroke: currentColor;
+				transition: stroke 150ms ease-in-out;
+			}
 		}
 	}
 
@@ -1558,6 +1566,11 @@ footer .wp-block-button__link.wp-element-button {
 	path {
 		stroke: var(--wp--custom--color--icon);
 	}
+}
+
+header.wp-block-template-part .snapshot-icon path,
+.snapshot-header-wrapper .snapshot-icon path {
+	stroke: currentColor;
 }
 
 a:hover > .snapshot-icon,
