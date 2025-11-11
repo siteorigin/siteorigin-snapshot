@@ -168,7 +168,7 @@ function siteorigin_snapshot_posts_slider_block( $block_content, $block ) {
 		return $block_content;
 	}
 
-	// If no featured images are present, output nothing so previews without media (e.g., wp.org) skip the slider.
+	// If no featured images are present, output nothing so previews without media skip the slider.
 	if ( strpos( $block_content, 'wp-block-post-featured-image' ) === false ) {
 		return '';
 	}
