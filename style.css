@@ -727,6 +727,11 @@ summary {
 	.wp-block-read-more {
 		text-decoration: none;
 	}
+
+	.wp-block-read-more {
+		--wp--custom--color--button--hover--background: transparent;
+		--wp--custom--color--button--hover--text: currentColor;
+	}
 }
 
 .wp-block-group:is(:empty) {
@@ -1430,32 +1435,33 @@ body.author :where(.wp-block-post-author-biography) {
 		text-transform: uppercase;
 	}
 
-	/* Only apply button styling to post terms in post content, not in headers, sliders, etc. */
-	.entry-content &:not(.is-style-unstyled):not(.is-style-entry-meta):not(.taxonomy-product_cat):not(.wc-block-components-product-sku) {
-		display: flex;
-		gap: 8px;
+}
 
-		a {
-			background: var(--wp--custom--color--atomic);
-			color: var(--wp--preset--color--secondary);
-			font-size: var(--wp--preset--font-size--extra-small);
-			line-height: 1.6;
-			margin: 0;
-			padding: 4px 12px;
+.wp-block-post-terms.is-style-button:not(.is-style-entry-meta):not(.taxonomy-product_cat):not(.wc-block-components-product-sku) {
+	align-items: center;
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: 8px;
 
-			&:focus,
-			&:hover {
-				background: var(--wp--custom--color--secondary);
-				color: var(--wp--preset--color--atomic);
-			}
-		}
+	a {
+		background: var(--wp--custom--color--atomic);
+		color: var(--wp--preset--color--secondary);
+		font-size: var(--wp--preset--font-size--extra-small);
+		line-height: 1.6;
+		margin: 0;
+		padding: 4px 12px;
 
-		/* The separator only makes sense visually with the unstyled style. */
-		.wp-block-post-terms__separator {
-			display: none;
+		&:focus,
+		&:hover {
+			background: var(--wp--custom--color--secondary);
+			color: var(--wp--preset--color--atomic);
 		}
 	}
 
+	/* The separator only makes sense visually with the unstyled style. */
+	.wp-block-post-terms__separator {
+		display: none;
+	}
 }
 
 /* Add hover states to Button Blocks that don't have them. */
@@ -1486,19 +1492,19 @@ footer .wp-block-button__link.wp-element-button {
 }
 
 /* Posts slider categories when the slider sits inside entry content (e.g., previews or post body). */
-.entry-content .snapshot-posts-slider-loop .wp-block-post-terms:not(.is-style-unstyled):not(.is-style-entry-meta):not(.taxonomy-product_cat):not(.wc-block-components-product-sku) {
+.entry-content .snapshot-posts-slider-loop .wp-block-post-terms:not(.is-style-unstyled):not(.is-style-entry-meta):not(.is-style-button):not(.taxonomy-product_cat):not(.wc-block-components-product-sku) {
+	align-items: center;
 	display: inline-flex;
-	gap: 12px;
+	gap: 0;
 }
 
-.entry-content .snapshot-posts-slider-loop .wp-block-post-terms:not(.is-style-unstyled):not(.is-style-entry-meta):not(.taxonomy-product_cat):not(.wc-block-components-product-sku) a {
+.entry-content .snapshot-posts-slider-loop .wp-block-post-terms:not(.is-style-unstyled):not(.is-style-entry-meta):not(.is-style-button):not(.taxonomy-product_cat):not(.wc-block-components-product-sku) a {
 	background: none;
-	color: inherit;
 	padding: 0;
 	text-decoration: none;
 }
 
-.entry-content .snapshot-posts-slider-loop .wp-block-post-terms:not(.is-style-unstyled):not(.is-style-entry-meta):not(.taxonomy-product_cat):not(.wc-block-components-product-sku) .wp-block-post-terms__separator {
+.entry-content .snapshot-posts-slider-loop .wp-block-post-terms:not(.is-style-unstyled):not(.is-style-entry-meta):not(.is-style-button):not(.taxonomy-product_cat):not(.wc-block-components-product-sku) .wp-block-post-terms__separator {
 	display: inline;
 }
 
