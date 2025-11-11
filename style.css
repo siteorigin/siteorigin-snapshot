@@ -1564,7 +1564,9 @@ footer .wp-block-button__link.wp-element-button {
 	display: inline-block;
 
 	path {
-		stroke: var(--wp--custom--color--icon);
+		color: currentColor;
+		stroke: currentColor;
+		transition: stroke 150ms ease-in-out;
 	}
 }
 
