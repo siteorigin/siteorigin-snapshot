@@ -88,6 +88,14 @@ The following fonts are loaded locally from the theme's assets:
 
 == Changelog ==
 
+= 1.0.5 - 11 November 2025 =
+* Buttons: Synced Read More hover tokens so slider and loop links keep consistent contrast and transitions.
+* Footer: Prevented footer pattern links from inheriting underlines when inserted inside page content.
+* Header: Added a reusable wrapper for desktop and mobile headers, removed excess submenu padding, and preserved navigation link styling when templates are cloned.
+* Post Loop: Added a dedicated wrapper so titles, entry meta, taxonomy links, and Read More elements remain unlined in previews.
+* Post Terms: Refined the button style so taxonomy chips align, wrap, and hover consistently across loops and sliders.
+* Posts Slider: Matched light-style text colors, refreshed default colors and Read More styling, kept embedded sliders from inheriting unwanted link styles, and hide the slider when no featured images exist.
+
 = 1.0.4 - 26 July 2025 =
 * Added search template with archive-style formatting and border consistency.
 * Removed post meta comments link.
