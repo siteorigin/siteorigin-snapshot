@@ -4,7 +4,6 @@
 
 - Run `npm install` after cloning to pull dev dependencies (including `lefthook`). Git hooks rely on the binary that ships with `node_modules`, so installing once per checkout is required.
 - Pre-commit and pre-push checks reuse scripts from the private `siteorigin-pre-commit` repository. Set `SITEORIGIN_PRE_COMMIT_PATH` to the absolute path of your clone so the hooks can find the shared scripts regardless of local layout.
-- Pattern linting proxies to `siteorigin-pattern-system/tools/lint-pattern`. Provide its location via `SITEORIGIN_PATTERN_LINTER_PATH` if it isn’t available on your default path.
 
 ## REM vs Pixel Usage Guidelines
 
