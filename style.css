@@ -970,10 +970,12 @@ ol.so-is-block {
 	}
 
 	.wp-block-search__inside-wrapper {
+		background: transparent;
 		padding: 0;
 
 		input[type="search"] {
-			background: none;
+			background: transparent;
+			box-shadow: none;
 			color: var(--wp--preset--color--secondary);
 		}
 	}
